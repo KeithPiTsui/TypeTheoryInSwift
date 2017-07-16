@@ -1,0 +1,44 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-1}{Contents}}{3}\relax 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-20001}{QQ2-1-2}{Abstract}}{4}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-30002}{QQ2-1-3}{General Setup for Programming Language}}{4}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-40003}{QQ2-1-4}{Computational Trinitarianism}}{6}\relax 
+\doTocEntry\tocsection{4}{\csname a:TocLink\endcsname{1}{x1-50004}{QQ2-1-5}{Type Forms}}{7}\relax 
+\doTocEntry\tocsection{5}{\csname a:TocLink\endcsname{1}{x1-60005}{QQ2-1-6}{Product}}{8}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-70005}{QQ2-1-7}{Product in Type Theory}}{8}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-80005}{QQ2-1-8}{Product in Logic}}{11}\relax 
+\doTocEntry\toclikesubsubsection{}{\csname a:TocLink\endcsname{1}{x1-90005}{QQ2-1-9}{Soundness and Completeness$^{[8]}$}}{12}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-100005}{QQ2-1-10}{Product in Category Theory}}{13}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-110005}{QQ2-1-11}{Product in Swift}}{13}\relax 
+\doTocEntry\tocsection{6}{\csname a:TocLink\endcsname{1}{x1-120006}{QQ2-1-12}{Sum}}{13}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-130006}{QQ2-1-13}{Sum in Type Theory}}{13}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-140006}{QQ2-1-14}{Sum in Logic}}{17}\relax 
+\doTocEntry\toclikesubsubsection{}{\csname a:TocLink\endcsname{1}{x1-150006}{QQ2-1-15}{Soundness and Completeness}}{18}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-160006}{QQ2-1-16}{Sum in Category Theory}}{18}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-170006}{QQ2-1-17}{Sum in Swift}}{18}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-180006}{QQ2-1-18}{Exhaustiveness ensures Progress}}{19}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-190006}{QQ2-1-19}{Boolean represented as sum}}{19}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-200006}{QQ2-1-20}{Boolean Blindness$^{[2]}$}}{20}\relax 
+\doTocEntry\tocsection{7}{\csname a:TocLink\endcsname{1}{x1-210007}{QQ2-1-21}{Duality$^{[7]}$}}{20}\relax 
+\doTocEntry\tocsection{8}{\csname a:TocLink\endcsname{1}{x1-220008}{QQ2-1-22}{Function}}{21}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-230008}{QQ2-1-23}{Function in Type Theory}}{21}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-240008}{QQ2-1-24}{Function in Logic}}{24}\relax 
+\doTocEntry\toclikesubsubsection{}{\csname a:TocLink\endcsname{1}{x1-250008}{QQ2-1-25}{Soundness and Completeness}}{25}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-260008}{QQ2-1-26}{Function in Category Theory}}{25}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-270008}{QQ2-1-27}{Function in Swift}}{26}\relax 
+\doTocEntry\tocsection{9}{\csname a:TocLink\endcsname{1}{x1-280009}{QQ2-1-28}{Type Algebras}}{26}\relax 
+\doTocEntry\tocsection{10}{\csname a:TocLink\endcsname{1}{x1-2900010}{QQ2-1-29}{Algebraic Data Types}}{29}\relax 
+\doTocEntry\tocsection{11}{\csname a:TocLink\endcsname{1}{x1-3000011}{QQ2-1-30}{Recursive Types}}{29}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3100011}{QQ2-1-31}{General Recursion}}{29}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3200011}{QQ2-1-32}{Primitive Recursion}}{31}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3300011}{QQ2-1-33}{Recursive type}}{35}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3400011}{QQ2-1-34}{Natural Number in Swift}}{38}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3500011}{QQ2-1-35}{Call by Value, Eager VS. Call by Name, Lazy}}{40}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3600011}{QQ2-1-36}{Stream in Swift}}{41}\relax 
+\doTocEntry\tocsection{12}{\csname a:TocLink\endcsname{1}{x1-3700012}{QQ2-1-37}{Universal}}{41}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-3800012}{QQ2-1-38}{Universal Type in Swift}}{44}\relax 
+\doTocEntry\tocsection{13}{\csname a:TocLink\endcsname{1}{x1-3900013}{QQ2-1-39}{Existential}}{44}\relax 
+\doTocEntry\toclikesubsection{}{\csname a:TocLink\endcsname{1}{x1-4000013}{QQ2-1-40}{Existential Type in Swift}}{51}\relax 
+\doTocEntry\tocsection{14}{\csname a:TocLink\endcsname{1}{x1-4100014}{QQ2-1-41}{Summary}}{52}\relax 
+\doTocEntry\tocsection{15}{\csname a:TocLink\endcsname{1}{x1-4200015}{QQ2-1-42}{References}}{52}\relax 
+\doTocEntry\tocsection{16}{\csname a:TocLink\endcsname{1}{x1-4300016}{QQ2-1-43}{Terms and Conventions}}{52}\relax 

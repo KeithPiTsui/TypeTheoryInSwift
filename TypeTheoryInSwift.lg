@@ -1,0 +1,285 @@
+htfcss: cmti  font-style: italic;
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+htfcss: cmtt font-family: monospace;
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+File: TypeTheoryInSwift.html
+File: TypeTheoryInSwift.css
+File: TypeTheoryInSwift.tmp
+Css: p.noindent { text-indent: 0em }
+Css: td p.noindent { text-indent: 0em; margin-top:0em; }
+Css: p.nopar { text-indent: 0em; }
+Css: p.indent{ text-indent: 1.5em }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 1px; margin:0px; }
+Css: .tabbing-right {text-align:right;}
+Css: span.TEX {letter-spacing: -0.125em; }
+Css: span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+Css: a span.TEX span.E {text-decoration: none; }
+Css: span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+Css: span.LATEX span.TEX{ position:relative; left: -0.4em; }
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Css: .quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+Css: .abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 1px; margin:0px; }
+Css: div.array {text-align:center;}
+Css: .figure img.graphics {margin-left:10%;}
+Css: .diagrams {text-align: center;}
+Css: .lstlisting .label{margin-right:0.5em; }
+Css: div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+Css: div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
+Css: .lstinputlisting .label{margin-right:0.5em;}
+--- needs --- TypeTheoryInSwift.idv[2] ==> TypeTheoryInSwift0x.png ---
+--- needs --- TypeTheoryInSwift.idv[3] ==> TypeTheoryInSwift1x.png ---
+--- needs --- TypeTheoryInSwift.idv[5] ==> TypeTheoryInSwift2x.png ---
+--- needs --- TypeTheoryInSwift.idv[6] ==> TypeTheoryInSwift3x.png ---
+--- needs --- TypeTheoryInSwift.idv[7] ==> TypeTheoryInSwift4x.png ---
+--- needs --- TypeTheoryInSwift.idv[9] ==> TypeTheoryInSwift5x.png ---
+--- needs --- TypeTheoryInSwift.idv[10] ==> TypeTheoryInSwift6x.png ---
+--- needs --- TypeTheoryInSwift.idv[11] ==> TypeTheoryInSwift7x.png ---
+--- needs --- TypeTheoryInSwift.idv[13] ==> TypeTheoryInSwift8x.png ---
+--- needs --- TypeTheoryInSwift.idv[14] ==> TypeTheoryInSwift9x.png ---
+--- needs --- TypeTheoryInSwift.idv[15] ==> TypeTheoryInSwift10x.png ---
+--- needs --- TypeTheoryInSwift.idv[17] ==> TypeTheoryInSwift11x.png ---
+--- needs --- TypeTheoryInSwift.idv[18] ==> TypeTheoryInSwift12x.png ---
+--- needs --- TypeTheoryInSwift.idv[20] ==> TypeTheoryInSwift13x.png ---
+--- needs --- TypeTheoryInSwift.idv[22] ==> TypeTheoryInSwift14x.png ---
+--- needs --- TypeTheoryInSwift.idv[23] ==> TypeTheoryInSwift15x.png ---
+--- needs --- TypeTheoryInSwift.idv[24] ==> TypeTheoryInSwift16x.png ---
+--- needs --- TypeTheoryInSwift.idv[26] ==> TypeTheoryInSwift17x.png ---
+--- needs --- TypeTheoryInSwift.idv[27] ==> TypeTheoryInSwift18x.png ---
+--- needs --- TypeTheoryInSwift.idv[28] ==> TypeTheoryInSwift19x.png ---
+--- needs --- TypeTheoryInSwift.idv[30] ==> TypeTheoryInSwift20x.png ---
+--- needs --- TypeTheoryInSwift.idv[31] ==> TypeTheoryInSwift21x.png ---
+--- needs --- TypeTheoryInSwift.idv[32] ==> TypeTheoryInSwift22x.png ---
+--- needs --- TypeTheoryInSwift.idv[34] ==> TypeTheoryInSwift23x.png ---
+--- needs --- TypeTheoryInSwift.idv[35] ==> TypeTheoryInSwift24x.png ---
+--- needs --- TypeTheoryInSwift.idv[36] ==> TypeTheoryInSwift25x.png ---
+--- needs --- TypeTheoryInSwift.idv[38] ==> TypeTheoryInSwift26x.png ---
+--- needs --- TypeTheoryInSwift.idv[39] ==> TypeTheoryInSwift27x.png ---
+--- needs --- TypeTheoryInSwift.idv[41] ==> TypeTheoryInSwift28x.png ---
+--- needs --- TypeTheoryInSwift.idv[43] ==> TypeTheoryInSwift29x.png ---
+--- needs --- TypeTheoryInSwift.idv[45] ==> TypeTheoryInSwift30x.png ---
+--- needs --- TypeTheoryInSwift.idv[46] ==> TypeTheoryInSwift31x.png ---
+--- needs --- TypeTheoryInSwift.idv[47] ==> TypeTheoryInSwift32x.png ---
+--- needs --- TypeTheoryInSwift.idv[48] ==> TypeTheoryInSwift33x.png ---
+--- needs --- TypeTheoryInSwift.idv[50] ==> TypeTheoryInSwift34x.png ---
+--- needs --- TypeTheoryInSwift.idv[51] ==> TypeTheoryInSwift35x.png ---
+--- needs --- TypeTheoryInSwift.idv[52] ==> TypeTheoryInSwift36x.png ---
+--- needs --- TypeTheoryInSwift.idv[54] ==> TypeTheoryInSwift37x.png ---
+--- needs --- TypeTheoryInSwift.idv[55] ==> TypeTheoryInSwift38x.png ---
+--- needs --- TypeTheoryInSwift.idv[57] ==> TypeTheoryInSwift39x.png ---
+--- needs --- TypeTheoryInSwift.idv[58] ==> TypeTheoryInSwift40x.png ---
+--- needs --- TypeTheoryInSwift.idv[59] ==> TypeTheoryInSwift41x.png ---
+--- needs --- TypeTheoryInSwift.idv[61] ==> TypeTheoryInSwift42x.png ---
+--- needs --- TypeTheoryInSwift.idv[63] ==> TypeTheoryInSwift43x.png ---
+--- needs --- TypeTheoryInSwift.idv[64] ==> TypeTheoryInSwift44x.png ---
+--- needs --- TypeTheoryInSwift.idv[65] ==> TypeTheoryInSwift45x.png ---
+--- needs --- TypeTheoryInSwift.idv[67] ==> TypeTheoryInSwift46x.png ---
+--- needs --- TypeTheoryInSwift.idv[68] ==> TypeTheoryInSwift47x.png ---
+--- needs --- TypeTheoryInSwift.idv[69] ==> TypeTheoryInSwift48x.png ---
+--- needs --- TypeTheoryInSwift.idv[71] ==> TypeTheoryInSwift49x.png ---
+--- needs --- TypeTheoryInSwift.idv[73] ==> TypeTheoryInSwift50x.png ---
+--- needs --- TypeTheoryInSwift.idv[74] ==> TypeTheoryInSwift51x.png ---
+--- needs --- TypeTheoryInSwift.idv[75] ==> TypeTheoryInSwift52x.png ---
+--- needs --- TypeTheoryInSwift.idv[77] ==> TypeTheoryInSwift53x.png ---
+--- needs --- TypeTheoryInSwift.idv[78] ==> TypeTheoryInSwift54x.png ---
+--- needs --- TypeTheoryInSwift.idv[80] ==> TypeTheoryInSwift55x.png ---
+--- needs --- TypeTheoryInSwift.idv[81] ==> TypeTheoryInSwift56x.png ---
+--- needs --- TypeTheoryInSwift.idv[82] ==> TypeTheoryInSwift57x.png ---
+--- needs --- TypeTheoryInSwift.idv[84] ==> TypeTheoryInSwift58x.png ---
+--- needs --- TypeTheoryInSwift.idv[85] ==> TypeTheoryInSwift59x.png ---
+--- needs --- TypeTheoryInSwift.idv[86] ==> TypeTheoryInSwift60x.png ---
+--- needs --- TypeTheoryInSwift.idv[88] ==> TypeTheoryInSwift61x.png ---
+--- needs --- TypeTheoryInSwift.idv[90] ==> TypeTheoryInSwift62x.png ---
+--- needs --- TypeTheoryInSwift.idv[91] ==> TypeTheoryInSwift63x.png ---
+--- needs --- TypeTheoryInSwift.idv[92] ==> TypeTheoryInSwift64x.png ---
+--- needs --- TypeTheoryInSwift.idv[93] ==> TypeTheoryInSwift65x.png ---
+--- needs --- TypeTheoryInSwift.idv[94] ==> TypeTheoryInSwift66x.png ---
+--- needs --- TypeTheoryInSwift.idv[96] ==> TypeTheoryInSwift67x.png ---
+--- needs --- TypeTheoryInSwift.idv[97] ==> TypeTheoryInSwift68x.png ---
+--- needs --- TypeTheoryInSwift.idv[98] ==> TypeTheoryInSwift69x.png ---
+--- needs --- TypeTheoryInSwift.idv[100] ==> TypeTheoryInSwift70x.png ---
+--- needs --- TypeTheoryInSwift.idv[101] ==> TypeTheoryInSwift71x.png ---
+--- needs --- TypeTheoryInSwift.idv[102] ==> TypeTheoryInSwift72x.png ---
+--- needs --- TypeTheoryInSwift.idv[104] ==> TypeTheoryInSwift73x.png ---
+--- needs --- TypeTheoryInSwift.idv[105] ==> TypeTheoryInSwift74x.png ---
+--- needs --- TypeTheoryInSwift.idv[106] ==> TypeTheoryInSwift75x.png ---
+--- needs --- TypeTheoryInSwift.idv[108] ==> TypeTheoryInSwift76x.png ---
+--- needs --- TypeTheoryInSwift.idv[110] ==> TypeTheoryInSwift77x.png ---
+--- needs --- TypeTheoryInSwift.idv[112] ==> TypeTheoryInSwift78x.png ---
+--- needs --- TypeTheoryInSwift.idv[113] ==> TypeTheoryInSwift79x.png ---
+--- needs --- TypeTheoryInSwift.idv[115] ==> TypeTheoryInSwift80x.png ---
+--- needs --- TypeTheoryInSwift.idv[116] ==> TypeTheoryInSwift81x.png ---
+--- needs --- TypeTheoryInSwift.idv[117] ==> TypeTheoryInSwift82x.png ---
+--- needs --- TypeTheoryInSwift.idv[119] ==> TypeTheoryInSwift83x.png ---
+--- needs --- TypeTheoryInSwift.idv[121] ==> TypeTheoryInSwift84x.png ---
+--- needs --- TypeTheoryInSwift.idv[122] ==> TypeTheoryInSwift85x.png ---
+--- needs --- TypeTheoryInSwift.idv[123] ==> TypeTheoryInSwift86x.png ---
+--- needs --- TypeTheoryInSwift.idv[125] ==> TypeTheoryInSwift87x.png ---
+--- needs --- TypeTheoryInSwift.idv[126] ==> TypeTheoryInSwift88x.png ---
+--- needs --- TypeTheoryInSwift.idv[127] ==> TypeTheoryInSwift89x.png ---
+--- needs --- TypeTheoryInSwift.idv[129] ==> TypeTheoryInSwift90x.png ---
+--- needs --- TypeTheoryInSwift.idv[131] ==> TypeTheoryInSwift91x.png ---
+--- needs --- TypeTheoryInSwift.idv[133] ==> TypeTheoryInSwift92x.png ---
+--- needs --- TypeTheoryInSwift.idv[135] ==> TypeTheoryInSwift93x.png ---
+--- needs --- TypeTheoryInSwift.idv[137] ==> TypeTheoryInSwift94x.png ---
+--- needs --- TypeTheoryInSwift.idv[138] ==> TypeTheoryInSwift95x.png ---
+Css: #TBL-4 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-4{border-collapse:collapse;}
+Css: #TBL-4 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-4{border-collapse:collapse;}
+Css: #TBL-4 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-4{border-collapse:collapse;}
+Css: #TBL-4 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-4{border-collapse:collapse;}
+Css: #TBL-7 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-7{border-collapse:collapse;}
+Css: #TBL-7 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-7{border-collapse:collapse;}
+Css: #TBL-7 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-7{border-collapse:collapse;}
+Css: #TBL-7 colgroup{border-left: 1px solid black;border-right:1px solid black;}
+Css: #TBL-7{border-collapse:collapse;}
+--- characters ---
+Font("line","10","10","100")
+Font("cmr","5","5","100")
+Font("cmr","7","7","100")
+Font("cmr","10","10","100")
+Font("cmmi","7","7","100")
+Font("cmmi","10","10","100")
+Font("cmsy","7","7","100")
+Font("cmsy","10","10","100")
+Font("cmr","17","17","100")
+Font("cmr","12","12","100")
+Font("cmtt","10","10","100")
+Font("cmbx","10","10","100")
+Font("cmcsc","10","10","100")
+Font("cmti","10","10","100")

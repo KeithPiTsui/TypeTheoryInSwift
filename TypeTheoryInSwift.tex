@@ -1,0 +1,1283 @@
+\documentclass{article}
+\title{Type Theory in Swift}
+\author{Keith}
+\date{\today}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{bussproofs}
+\usepackage{tikz-cd}
+\usepackage{diagrams}
+\usepackage{listings}
+\usepackage{tabularx,ragged2e}
+\newcolumntype{x}{>{\Centering}X}
+\begin{document}
+ %% for swift
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Abstract}
+The article is based on my understanding of type theory, and another related theories, such as category theory and proof theory. After I had studied for months on those subjects, and for the purpose of make theories more practical in Swift, I love to exploit those theoretical notions in Swift, to see how theories can lead me to write code with properties that are guaranteed by theories, moreover, to reason computation on program more neatly, clearly and rigorously.
+
+\section{General Setup for Programming Language}
+We, as programmer, write programs in some programming languages all the days. Have we reflected a bit about why need programs, why we use programming languages, what is programming language, and how it runs? Moreover, functional programming is a trending programming paradigm these days, what is functional programming? Haskell, Scalar or so? Here, I am going to share my opinions about those questions based on my understanding of type theory and relate some concepts of type theory in Swift.
+
+
+Why do we need programs? All activities of human is to create values, tangible or intangible. How efficient do we create values is called productivity. Then the reason for why we need programs is to improve our productivity, in other words, to solve problems by programs. We model problems in reality as a collection of concepts and their relations in our mind, and then we reason based on that model to figure out how to solve those problems step by step, means we can make algorithms to solve problems. Afterward we can implement those algorithms in some programming language then complied into programs that will be executed on a computer. 
+\begin{quote}
+Therefore programming languages are languages, a means of expressing computations in a form comprehensible to both people and machines.$^{[1]}$
+\end{quote}
+What is computation? Computation is to take next step based on current state. It allows termination and non-termination. For instance of algorithm, we know an algorithm specifying a series steps to solve a problem. The next step is determined by the current state just right before that step. And after that step, the state will transit to another state. So we can regard algorithm is a series computations that solve problem.
+
+
+Now we know why we need programs and programming languages. And it is time to ask what is programming languages. Based on lectures $^{[2]}$ from Robert Harper and his book$^{[1]}$, programming language consists of two major parts, statics and dynamics. Statics includes concrete syntax, abstract syntax and context sensitive conditions which means type formation rules and typing judgment for expression.
+
+
+Dynamics includes specifications of values and expression transitions ( expression evaluation )
+
+
+These two parts are coherent, and together implying type safety, means well-typed programs will well behave when it is executed, in other words, well-typed programs never get stuck.
+
+
+The concrete syntax of a programming language specifies how people write programs on the editor, and how programs are represented in character strings. In other words, the concrete syntax determines how the source codes look like. After source code being parsed into compiler, compiler would construct a structure representing the structure of programs which will be called abstract syntax trees and abstract binding trees which enrich abstract syntax trees by additional variable bindings and scooping. They are tree structures with nodes as operators and leaves as variables or values. They also specify what are expressions and how to construct expressions from expressions.  Here variables are placeholders which are different from the notion of variable in programming language, they much like constant in swift, immutable after initialization, whereas variable in programming language should be called assignable which is mutable after initialization, according to Robert Harper.
+
+
+Next thing is the type formation rules and expression typing judgments. They specify what identifiers are types, and what types expression are. From documents of The Swift Programming Language Reference [3], we can see there are sections named Types, Expressions, Statements, and Declarations. Those sections told us something about how to create types and construct expressions in Swift. Declarations section told us how to create types, variables and some other flavors. Type section told us what means type in Swift, it is a little bit divergent from what I mean type in this article. Expressions and Statements sections told us how to construct expression in Swift. They all fit together to represent statics of Swift.
+
+
+Turning to Dynamics. Dynamics means how program runs. Informally, that means how to evaluate a given expression. Dynamics specifies rules to identify what expressions are values, and how to evaluate expressions to values. It looks like a transition system, specifying initial states (any expression), final states (values), and the transitions between states (expression evaluation).
+
+
+Dynamics transition doesn’t care about types and it needn’t. Because the coherence (Type safety) of Statics and Dynamics ensure that well-typed program will well behave when it runs. In other words, type is preserved by transition (Preservation) and if an expression is well typed, then it will be a value or can transition to another expression (Progress). So Well-behaved means from the transition system, every expression will be either value or have next step to move on. That is for all expressions e, there exist at most one value v, such that the expression e can be eventually evaluated to v by multiple steps. This property of program defines it is functional, which means program is deterministic.[2] One more thing, type is not set, because type allows partial function (divergent) and total function (non-divergent), whereas set only allows total function. We will see in concrete example in Recursive Types. 
+
+
+Type is behavioral specification of its expression. That means the type of an expression specifies what can that expression behave. Moreover, in a function, what information can be used inside that function is from the type of its arguments, nothing else. That ensure the ability of abstraction and composition of program. So different types and different classes of types can codify different behavioral description, which can ensure how program runs. Moreover, features of a programming language are determined by its type structures. Therefore let us exam type structures illustrated in Type theory and relate them in Swift.
+
+
+\section{Computational Trinitarianism}
+
+
+Before we get into type structures, I want to show a very cool idea here, the computational trinitarianism which was advocated by Robert Harper in his post$^{[4]}$. 
+\begin{quote}
+The central dogma of computational trinitarianism holds that Logic, Languages, and Categories are but three manifestations of one divine notion of computation. There is no preferred route to enlightenment: each aspect provides insights that comprise the experience of computation in our lives.
+
+
+Computational trinitarianism entails that any concept arising in one aspect should have meaning from the perspective of the other two. If you arrive at an insight that has importance for logic, languages, and categories, then you may feel sure that you have elucidated an essential concept of computation–you have made an enduring scientific discovery. By Robert Harper$^{[5]}$
+\end{quote}
+
+
+Basically, you can regard a proposition as a type, a proof of a proposition as a program of a type, entailments in logic as function in type theory, then we can see the deep connection between Logic and Type theory. Furthermore, for type theory and category theory, you can regard type as object and function as morphism in category theory. Now with connections between Logic and Type theory, and connections between Type theory and Category theory, we have flavor how those three things related to each other to manifest of the notion of computation. For more detail, you can check in relation between type theory and category theory $^{[6]}$, which states that 
+\begin{align*}
+computational\:trinitarianism &= propositions\ as\ types\\
+&+ programs\ as\ proofs\\
+&+ relation\ between\ type\ theory\ and\ category\ theory.
+\end{align*}
+	According this setup, I will try to exam type structure in this framework, manifest type structure into those three fields to see how the notions connected in those three fields.
+
+\section{Type Forms}
+There different type forms in a programming language which recognize some common patterns of types. Therefore we can group types in a programming language into different type forms, because the types with the same type forms have common pattern of their type structure. Thus sometimes type forms are also called type structures, or compound types.
+
+
+To describe a type forms, we have four aspects, namely by type formation rules, typing rules which have introductory rules and elimination rules, value rules and evaluations rules. The former two aspects are also called statics, whereas the latter two are called dynamics. Type formations rules tell us how to derive the new type of a particular type form from existing types. Typing rules tell us what would be the expression of type of a particular type form, where introductory rules show us how to construct its expression and elimination rules show us how to use an expression of that type. Moreover, to see Elimination rules and Introductory rules are in harmony, we use concepts of local soundness witnessed by local reduction and local completeness witnessed by local expansion, which will be explained in later sections. Value rules tell us when the expression of that type is value. And last one, evaluation rule, tell us how to do step-evaluation on an expression of that type, and eventually to be evaluated as value of that type (if not divergent). Because if some language has recursive type, it allows non-termination expression, which is called divergent.
+
+
+In the following sections, the type forms we will talk about include product, sum, exponential, recursive, universal, and existential, which has its corresponding type structure in Swift to some extent. Tuple and struct in Swift as product, enumeration in Swift as sum, function and closure in Swift as exponential, indirect enumeration in Swift as recursive, generic in Swift as universal, protocol in Swift as existential.
+
+\section{Product}
+\subsection*{Product in Type Theory}
+Type: 
+\begin{equation*}
+\tau_{1}\times\tau_{2}
+\end{equation*}
+Expression: 
+\begin{equation*}
+<e_{1},e_{2}>
+\end{equation*}
+Type Formation: 
+\begin{equation*}
+\frac{\Gamma\,\vdash\,\tau_{1}\,type\quad\Gamma\,\vdash\,\tau_{2}\,type}
+{\Gamma\,\vdash\,\tau_{1}\times\tau_{2}\,type}
+\end{equation*}
+Typing Judgments:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e_{1}\,:\,\tau_{1}\quad\Gamma\,\vdash\,e_{2}\,:\,\tau_{2}}
+{\Gamma\,\vdash\,<e_{1},e_{2}>\,:\,\tau_{1}\times\tau_{2}}\times_{I}\tag{Introduction Form}
+\end{equation*}
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,\tau_{1}\times\tau_{2}}
+{\Gamma\,\vdash\,e.1\,:\,\tau_{1}}\times_{E1}
+\qquad 
+\frac{\Gamma\,\vdash\,e\,:\,\tau_{1}\times\tau_{2}}
+{\Gamma\,\vdash\,e.2\,:\,\tau_{2}}\times_{E2}
+\tag{Elimination Form}
+\end{equation*}
+Values:
+\begin{equation*}
+\frac{e_{1}\,value\quad e_{2}\,value}
+{<e_{1},e_{2}>\,value}
+\end{equation*}
+\begin{equation*}
+\frac{e\,value}
+{e.1\,value}
+\qquad 
+\frac{e\,value}
+{e.2\,value}
+\end{equation*}
+Transitions (Evaluations):
+\begin{equation*}
+\frac{e_{1}\,\mapsto\,e'_{1}}
+{<e_{1},e_{2}>\,\mapsto\,<e'_{1},e_{2}>}
+\end{equation*}
+\begin{equation*}
+\frac{e_{2}\,\mapsto\,e'_{2}}
+{<e_{1},e_{2}>\,\mapsto\,<e_{1},e'_{2}>}
+\end{equation*}
+
+\subsection*{Product in Logic}
+Connectives:
+\begin{equation*}
+A \wedge B\ true
+\end{equation*}
+Forms:
+\begin{equation*}
+\frac{A\ true \quad B\ true}
+{A \wedge B\ true}\wedge_{I}\tag{Introduction Form}
+\end{equation*}
+\begin{equation*}
+\frac{A \wedge B\ true}
+{A\ true}\wedge_{E1}
+\qquad
+\frac{A \wedge B\ true}
+{B\ true}\wedge_{E2}
+\tag{Elimination Form}
+\end{equation*}
+
+\subsubsection*{Soundness and Completeness$^{[8]}$}
+Local Soundness of Elimination rules are witnessed by local reduction, which is to apply elimination rules after introduction rules.Whereas local Completeness of Elimination rules are witnessed by local expansion, which is to apply introduction rules after elimination rules. Introduction rules and Elimination rules should be harmonic.
+
+
+Informally, it can be thought of introduction rules as packing information into a compound types, and elimination rules as unpacking information back from a compound types. Therefore, being harmonic means both packing after unpacking (Local Completeness) and unpacking after packing (Local Soundness) do not lose anything information
+
+
+Soundness is witnessed by local reduction whereas Completeness is witnessed by local expansion:
+\[
+\begin{tabular}{@{} l >{\centering\arraybackslash}m{.7\textwidth} @{}}
+\textsc{Local Reduction} &
+  \begin{prooftree}
+  \AxiomC{$A\ true$}
+  \AxiomC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E1}$}
+  \UnaryInfC{$A\ true$}
+  \end{prooftree}
+  \begin{prooftree}
+  \AxiomC{$A\ true$}
+  \AxiomC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E2}$}
+  \UnaryInfC{$A\ true$}
+  \end{prooftree}
+\\
+\textsc{Local Expansion} &
+  \begin{prooftree}
+  \AxiomC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E1}$}
+  \UnaryInfC{$A\ true$}
+  \AxiomC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E2}$}
+  \UnaryInfC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \end{prooftree}
+\end{tabular}
+\]
+
+\subsection*{Product in Category Theory}
+Given types $\tau_{1}$ and $\tau_{2}$, we can define the product of those two types as $\tau_{1}\times\tau_{2}$ with its projects $p_{1} : \tau_{1}\times\tau_{2} \rightarrow \tau_{1}$ and $p_{2} : \tau_{1}\times\tau_{2} \rightarrow \tau_{2}$. Depicted as following:
+
+\def\Assl{{\rm assl}}
+\def\Id{{\rm id}}
+\begin{diagram}
+    &  & \Gamma &  &  \\
+     & \ldTo^{e_{1}} & \dTo^{e} & \rdTo^{e_{2}} &  \\
+\tau_{1}     & \lTo^{p_{1}} & \tau_{1}\times\tau_{2} & \rTo^{p_{2}} & \tau_{2} \\
+\end{diagram}
+
+
+By universal mapping property of product, we know that for all type $\Gamma$ having mappings $\Gamma \rightarrow \tau_{1}$ and $\Gamma \rightarrow \tau_{2}$, there exists an unique-up-to-isomorphism mapping $e : \Gamma \rightarrow \tau_{1}\times\tau_{2}$, such that $e_{1} = p_{1} \circ e$ and $e_{2} = p_{2} \circ e$.
+
+\subsection*{Product in Swift}
+In Swift, product can be constructed by tuple or struct, which can pair up two types together, and even more types for n-ary product.
+See the following code to taste the flavor of product in Swift.
+
+\begin{lstlisting}[language=Swift]
+// function composition
+func composition <A, B, C>
+  (f: @escaping (B) -> C, g: @escaping (A) -> B )
+  -> (A) -> C {
+  return { f(g($0)) }
+}
+
+// Tuple as product in Swift
+// Speed in 2D plate, represented by 
+// absolute speed kmph
+// and its horizontal angle
+struct Speed {
+  let kmph: Double
+  let horizontalAngle: Double
+}
+
+// Represent speed in 2D plate
+// by record its horizontal speed and vertical speed
+// with its projection functions
+typealias hSpeed = Double
+typealias vSpeed = Double
+typealias PairedSpeed
+  = (horizontalSpeed: hSpeed, verticalSpeed: vSpeed)
+func p1 (p: PairedSpeed) -> hSpeed {
+  return p.horizontalSpeed
+}
+func p2 (p: PairedSpeed) -> vSpeed {
+  return p.verticalSpeed
+}
+
+// Given mapping from Speed 
+// to components of PairedSpeed
+func e1 (_ v: Speed) -> vSpeed {
+  return v.kmph * sin(v.kmph)
+}
+func e2 (_ v: Speed) -> hSpeed {
+  return v.kmph * cos(v.kmph)
+}
+// we can construct the unique mapping
+// from Speed to PairedSpeed
+func e (v: Speed) -> PairedSpeed {
+  let v1 = e1(v)
+  let v2 = e2(v)
+  return (v1, v2)
+}
+
+// by function e, we can construct e1,
+// and e2 by function composition
+let e1x = composition(f: p1, g: e)
+let e2x = composition(f: p2, g: e)
+
+// then we can e1 = e1x and e2 = e2x
+let v = Speed(kmph: 100, horizontalAngle: 1/6)
+let vertialV = e1(v)
+let vertialVx = e1x(v)
+let horizontalV = e2(v)
+let horizontalVx = e2x(v)
+
+// By the way we can see tuple is the same struct
+// up to isomorphism,that is given a tuple T,
+// we can construct a struct S, such that
+// there are two functions f: T -> S and g: S -> T,
+// which are mutual inverted.
+// And given a struct to construct a tuple
+// has the same property.
+\end{lstlisting}
+
+\section{Sum}
+\subsection*{Sum in Type Theory}
+Type: 
+\begin{equation*}
+\tau_{1}+\tau_{2}
+\end{equation*}
+Expression: 
+\begin{equation*}
+in_{1}.e_{1}\qquad in_{2}.e_{2}\tag{injections}
+\end{equation*}
+Type Formation: 
+\begin{equation*}
+\frac{\Gamma\,\vdash\,\tau_{1}\,type\quad\Gamma\,\vdash\,\tau_{2}\,type}
+{\Gamma\,\vdash\,\tau_{1}+\tau_{2}\,type}
+\end{equation*}
+Typing Judgments:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e_{1}\,:\,\tau_{1}}
+{\Gamma\,\vdash\,in_{1}.e_{1}\,:\,\tau_{1}+\tau_{2}}+_{I1}
+\qquad
+\frac{\Gamma\,\vdash\,e_{2}\,:\,\tau_{2}}
+{\Gamma\,\vdash\,in_{2}.e_{2}\,:\,\tau_{1}+\tau_{2}}+_{I2}
+\end{equation*}
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,\tau_{1}+\tau_{2}
+	\qquad\Gamma,\,x\,:\,\tau_{1}\vdash\,e_{1}\,:\,\tau
+	\qquad\Gamma,\,x\,:\,\tau_{2}\vdash\,e_{2}\,:\,\tau}
+{\Gamma\,\vdash\,case\{e\} \{in_{1}.x\,\hookrightarrow e_{1}\,|\,in_{2}.x\,\hookrightarrow e_{2}\}\,:\,\tau}
++_{E}
+\end{equation*}
+Values:
+\begin{equation*}
+\frac{e\ value}
+{in_{1}.e\ value}
+\qquad 
+\frac{e\ value}
+{in_{2}.e\ value}
+\end{equation*}
+Transitions (Evaluations):
+\begin{equation*}
+\frac{e\,\mapsto\,e'}
+{case\{e\} \{in_{1}.x\,\hookrightarrow e_{1}\,|\,in_{2}.x\,\hookrightarrow e_{2}\}\,\mapsto\,case\{e'\} \{in_{1}.x\,\hookrightarrow e_{1}\,|\,in_{2}.x\,\hookrightarrow e_{2}\}}
+\end{equation*}
+\begin{equation*}
+\frac{e\ value}
+{case\{in_{1}.e\} \{in_{1}.x\,\hookrightarrow e_{1}\,|\,in_{2}.x\,\hookrightarrow e_{2}\}\,\mapsto\,[e/x]e_{1}}
+\end{equation*}
+\begin{equation*}
+\frac{e\ value}
+{case\{in_{2}.e\} \{in_{1}.x\,\hookrightarrow e_{1}\,|\,in_{2}.x\,\hookrightarrow e_{2}\}\,\mapsto\,[e/x]e_{2}}
+\end{equation*}
+
+\subsection*{Sum in Logic}
+Connectives:
+\begin{equation*}
+A \ \vee B\ true
+\end{equation*}
+Forms:
+\begin{equation*}
+\frac{A\ true}
+{A \vee B\ true}\vee_{I1}
+\qquad
+\frac{B\ true}
+{A \vee B\ true}\vee_{I1}
+\end{equation*}
+\begin{equation*}
+\frac{A \vee B\ true\quad A\ true \rightarrow C\ true \quad B\ true \rightarrow C\ true}
+{C\ true}\vee_{E}
+\end{equation*}
+
+\subsubsection*{Soundness and Completeness}
+
+\[
+\begin{tabular}{@{} l >{\centering\arraybackslash}m{.7\textwidth} @{}}
+\textsc{Local Reduction} &
+  \begin{prooftree}
+  \AxiomC{$A\ true$}
+  \AxiomC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E1}$}
+  \UnaryInfC{$A\ true$}
+  \end{prooftree}
+  \begin{prooftree}
+  \AxiomC{$A\ true$}
+  \AxiomC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E2}$}
+  \UnaryInfC{$A\ true$}
+  \end{prooftree}
+\\
+\textsc{Local Expansion} &
+  \begin{prooftree}
+  \AxiomC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E1}$}
+  \UnaryInfC{$A\ true$}
+  \AxiomC{$A\wedge B\ true$}
+  \RightLabel{$\wedge_{E2}$}
+  \UnaryInfC{$B\ true$}
+  \RightLabel{$\wedge_{I}$}
+  \BinaryInfC{$A\wedge B\ true$}
+  \end{prooftree}
+\end{tabular}
+\]
+
+\subsection*{Sum in Category Theory}
+Given types $\tau_{1}$ and $\tau_{2}$, we can define the sum of those two types as $\tau_{1}+\tau_{2}$ with its injections $i_{1} : \tau_{1} \rightarrow \tau_{1}+\tau_{2}$ and $i_{2} : \tau_{2} \rightarrow \tau_{1}+\tau_{2}$. Depicted as following:
+
+\def\Assl{{\rm assl}}
+\def\Id{{\rm id}}
+\begin{diagram}
+    &  & \sigma &  &  \\
+     & \ruTo^{f} & \uTo^{[f,g]} & \luTo^{g} &  \\
+\tau_{1}     & \rTo^{i_{1}} & \tau_{1}+\tau_{2} & \lTo^{i_{2}} & \tau_{2} \\
+\end{diagram}
+
+
+By universal mapping property of sum, we know that for all type $\sigma$ having mappings $\tau_{1} \rightarrow \sigma$ and $\tau_{2} \rightarrow \sigma$, there exists an unique-up-to-isomorphism mapping $[f,g] : \tau_{1}+\tau_{2} \rightarrow \sigma$, such that $f = [f,g]\circ i_{1}$ and $g = [f,g]\circ i_{2}$.
+
+\subsection*{Sum in Swift}
+In Swift, sum can be constructed by enumeration, which can construct tagged union for different cases and each case can contain different types, up to two cases for binary sum, and more cases for n-ary sum.
+See the following code to taste the flavor of sum in Swift.
+\begin{lstlisting}[language=Swift]
+enum MyOptional<T> {
+  case nothing
+  case Just(T)
+}
+
+let x: MyOptional<String> = MyOptional.nothing
+let xs: MyOptional<String> = MyOptional.Just("Hello world")
+
+func countS(s: String) -> Int {
+  return s.count
+}
+
+func countX(x: ()) -> Int {
+  return 0
+}
+
+func countOpt(x: MyOptional<String>) -> Int {
+  switch x {
+  case .nothing:
+    return 0
+  case .Just(let xs):
+    return xs.count
+  }
+}
+
+func injectOne(x: ()) -> MyOptional<String> {
+  return .nothing
+}
+
+func injectTwo(s: String) -> MyOptional<String> {
+  return .Just(s)
+}
+
+let cts = composition(f: countOpt, g: injectTwo)
+let ctx = composition(f: countOpt, g: injectOne)
+
+// then we can see cts == countS
+// and ctx == countX
+\end{lstlisting}
+\subsection*{Exhaustiveness ensures Progress}
+Sum is paired with case analysis which shows us how to use an expression of sum. Moreover if we do not want our program to get stuck during evaluation, we should let the case analysis be exhaustive, means every case is handled properly by an expression that takes the value from case analysis binder and return value of a type. The type of returned value of each expression should be the same, which is enforced by the universal mapping property of sum. Then the exhaustiveness of case analysis ensures that program will not get stuck during evaluation of using sum.
+
+\subsection*{Boolean represented as sum}
+We all know value of type Boolean only can have value true or false. Therefore we can see boolean as $1+1$, that is the value of Boolean can be $in_{1}.()$ as $true$ or $in_{2}.()$ as $false$. When we do branching based on boolean condition by using if-else, actually we do the case analysis on Boolean. In other words, the conditional branching of if-else can be exactly replaced by case analysis of Boolean, and vice versa.
+\begin{equation*}
+if\ b\ \{e_{1}\}\ else\ \{e_{2}\}\ \cong\ case\{b\} \{in_{1}.()\,\hookrightarrow e_{1}\,|\,in_{2}.()\,\hookrightarrow e_{2}\}
+\end{equation*}
+
+\subsection*{Boolean Blindness$^{[2]}$}
+There is an issue of null pointer checking called boolean blindness, means we have a variable a of type A, and that variable can become nil or null, as a variable holding an instance of a class, before we use variable a we should check variable a is not nil. Then the expression to use that variable would be
+$if\ a\ ==\ nil\ \{ e_{1} \} else \{ e_{2} \} $, and variable a will be used in $e_{1}$ and $e_{2}$ which is still can be nil because it can not be ensured by compiler or our type system. In other words, the execution of $e_{1}$ or $e_{2}$ should depend on the variable a, not the boolean condition of $a\, ==\,nil$. 
+
+Thus the better solution is that we can see in different way that the type of that variable is no longer type A, it should be type Optional A, which means that variable may have a value of type A or have not any value at all, nil. When we use variable a, we use case analysis to check if it is nil, then invoke different expressions for nil case and having value case. Therefore in the nil case, expression can not use variable a, whereas in the having value case, expression can confidently use the value of corresponding type A, which is enforced by our type system, no room for null pointer error. That is one insightful application of sum.
+
+\section{Duality$^{[7]}$}
+There are some concepts that occur as couples, like sum and product. Thus sum sometimes is called coproduct. You can see from the properties of sum and product, they look symmetric, you have one property in sum, then you can get corresponding property in product. When you see the diagram of product and sum in Category Theory context, you may find out the objects in those two diagrams are the same, the difference is in arrows, that is the arrows in product diagram is reverted exactly in sum diagram. If you know more about category theory, there are only objects and arrows which connect two objects at each end of an arrow in categorical diagram, and there are some rules restrict the diagram to become a category, said identity rule, associativity rule, and composition rule. After you construct a category which has objects and arrows as well as follows those three rules, then you can construct a dual category called opposite category by reverting the directions of all arrows. Therefore when you have a product in a category, then you can get the corresponding sum in the opposite category of original category. You can check the opposite category also follows the rules to be a category. That is what duality mean. 
+
+
+A structure in a category C has its dual structure in the opposite category of C named $C^{op}$. 
+
+
+Moreover a structure in a category is identified by mapping a pattern category to the category you want to find structure inside by functor, which is a mapping between categories. The diagrams of product and sum are patterns categories that you can map them to identify product and sum in a more complex category (means more objects and arrows). Furthermore, you can freely to construct pattern category by giving objects and arrows which will follow the rule of category, and then map the created pattern category to another category to identify the wanted structure inside. Therefore, we have a name for those pattern category as limit due to the universal mapping property of the structures identified by pattern category in a category. Always, there is a colimit as the dual of limit. Universal mapping property tells us that by different functors between pattern category to another category, we can identify all structures which have that pattern in a category, moreover, among them there is an unique-up-to-isomorphism structure to which other structures have an arrow from theirselves. Then we call the unique structure as limit. And colimit as limit in the opposite category.
+
+\section{Function}
+
+\subsection*{Function in Type Theory}
+Type: 
+\begin{equation*}
+\tau_{1}\,\rightarrow\,\tau_{2}
+\end{equation*}
+Expression: 
+\begin{equation*}
+\lambda x.e
+\end{equation*}
+Type Formation: 
+\begin{equation*}
+\frac{\Gamma\,\vdash\,\tau_{1}\,type\quad\Gamma\,\vdash\,\tau_{2}\,type}
+{\Gamma\,\vdash\,\tau_{1}\,\rightarrow\,\tau_{2}\,type}
+\end{equation*}
+Typing Judgments:
+\begin{equation*}
+\frac{\Gamma,\,x\,:\,\tau_{1}\vdash\,e\,:\,\tau_{2}}
+{\Gamma\,\vdash\,\lambda x.e\,:\,\tau_{1}\,\rightarrow\,\tau_{2}}\rightarrow_{I}
+\end{equation*}
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,\tau_{1}\,\rightarrow\,\tau_{2}
+	\qquad\Gamma\,\vdash\,e_{1}\,:\,\tau_{1}}
+{\Gamma\,\vdash\,e(e_{1})\,:\,\tau_{2}}
+\rightarrow_{E}
+\end{equation*}
+Values:
+\begin{equation*}
+\frac{}
+{\lambda x.e\ value}
+\end{equation*}
+Transitions (Evaluations):
+\begin{equation*}
+\frac{e\,\mapsto\,e'}
+{e(e_{1}) \mapsto e'(e_{1})}
+\end{equation*}
+\begin{equation*}
+\frac{e\ value\quad e_{1}\,\mapsto\,e'_{1}}
+{e(e_{1}) \mapsto e(e'_{1})}
+\end{equation*}
+\begin{equation*}
+\frac{\Gamma, x: \tau_{1} \vdash e: \tau_{2} \quad \Gamma \vdash e_{1}:\tau_{1}}
+{\Gamma \vdash [e_{1}/x] e : \tau_{2}}
+\end{equation*}
+
+\subsection*{Function in Logic}
+Connectives:
+\begin{equation*}
+A \ \rightarrow B\ true
+\end{equation*}
+Forms:
+\begin{equation*}
+\frac{A\ true\ \vdash\ B\ true}
+{A \ \rightarrow B\ true}\rightarrow_{I}
+\end{equation*}
+\begin{equation*}
+\frac{A \ \rightarrow B\ true\quad A\ true}
+{B\ true}\rightarrow_{E}
+\end{equation*}
+
+\subsubsection*{Soundness and Completeness}
+\[
+\begin{tabular}{@{} l >{\centering\arraybackslash}m{.7\textwidth} @{}}
+\textsc{Local Reduction} &
+  \begin{prooftree}
+  \AxiomC{$A\ true\ \vdash\ B\ true$} 
+  \RightLabel{$\rightarrow_{I}$}
+  \UnaryInfC{$A \ \rightarrow B\ true$} 
+  \AxiomC{$A \ true$}
+  \RightLabel{$\rightarrow_{E}$}
+  \BinaryInfC{$B \ true$}
+  \end{prooftree}
+\\
+\textsc{Local Expansion} &
+  \begin{prooftree}
+  \AxiomC{$A \ \rightarrow B\ true$}  
+  \AxiomC{}
+  \RightLabel{$x$}
+  \UnaryInfC{$A \ true$}
+  \RightLabel{$\rightarrow_{E}$}
+  \BinaryInfC{$B \ true$}\\
+    \RightLabel{$\rightarrow_{I}$}
+  \UnaryInfC{$A \ \rightarrow B\ true$}
+  \end{prooftree}
+\end{tabular}
+\]
+
+\subsection*{Function in Category Theory}
+Function in Category Theory has different names as exponential, morphism and mapping. They means the same thing in different context. Function is mostly used in the context of category Set, morphism is mostly used in the context of general category as arrow, exponential is used mostly when people need a more compact form or see it in algebraic way, and mapping is alias for them in their context.
+
+
+Given types $\tau_{1}$ and $\tau_{2}$, we can define the function of those two types as $\tau_{1}\rightarrow\tau_{2}$, or written as exponential form $\tau_{2}^{\tau_{1}}$ with its evaluation function $eval : \tau_{2}^{\tau_{1}} \times \tau_{1} \rightarrow \tau_{2}$. Depicted as following:
+
+\begin{diagram}
+C^{B}                     &  & C^{B}\,\times\,B                        & \rTo^{eval} & C &  \\
+\uTo^{\overline{f}} &  & \uTo^{\overline{f}\times 1_{B}} & \ruTo^{f}    &    & \\
+A                            &  & A\,\times\,B                              &                   &    & \\
+\end{diagram}
+
+
+By universal mapping property of function, given a function $f\,:\, A \times B \rightarrow C$ which takes two arguments of type A and type B and return a value of type B. There exist a uniquely corresponding function $\overline{f} \, : \, A \rightarrow C^{B}$, such that $ f = eval \circ (\overline{f} \times 1_{B}) $ as depicted in above diagram. 
+
+As you may know, from function $f\,:\, A \times B \rightarrow C$ transform to function $\overline{f} \, : \, A \rightarrow C^{B}$ is called currying, and reverted one from function $\overline{f} \, : \, A \rightarrow C^{B}$ to function $f\,:\, A \times B \rightarrow C$ is called uncurrying.
+
+\subsection*{Function in Swift}
+In Swift, exponential can be constructed by function, which can takes arguments of types and return values of types. See the following code to taste the flavor of exponential in Swift by currying and uncurrying.
+\begin{lstlisting}[language=Swift]
+// curry
+func curry<A,B,C>(f: @escaping (A,B) -> C ) -> (A) -> (B) -> C {
+  return { a in
+    return { b in f(a,b) }
+  }
+}
+
+// uncurry
+func uncurry<A, B, C> (f: @escaping (A) -> (B) -> C) -> (A, B) -> C {
+  return { a, b in f(a)(b)}
+}
+\end{lstlisting}
+
+\section{Type Algebras}
+The interesting part of the above type structure is that they have algebraic properties depicted as following equations. Given A, B, C are types, $1$ is nullary product called unit and $0$ is nullary sum called void, the sum, product and exponential among them will have algebraic properties.
+\begin{equation*}
+A \times 1 \cong A
+\qquad
+A \times ( B \times C ) \cong ( A \times B ) \times C
+\qquad
+A \times  B \cong B \times A
+\end{equation*}
+\begin{equation*}
+A + 0 \cong A
+\qquad
+A + ( B + C ) \cong ( A + B ) + C
+\qquad
+A +  B \cong B + A
+\end{equation*}
+\begin{equation*}
+A \times ( B + C ) \cong A \times B + A \times B
+\end{equation*}
+\begin{equation*}
+A \rightarrow ( B \times C ) \cong (A \rightarrow B) \times (A \rightarrow C)
+\qquad
+A \rightarrow 1 \cong 1
+\end{equation*}
+\begin{equation*}
+(A +  B) \rightarrow C \cong (A \rightarrow C) \times (B \rightarrow C)
+\qquad
+0 \rightarrow A \cong 1
+\end{equation*}
+\begin{equation*}
+(A \times  B) \rightarrow C \cong A \rightarrow B \rightarrow C
+\end{equation*}
+The left side equaling to the right side in an above equation means that given a compound type on one side, we can construct a function that returns the corresponding type on the other side without losing any information, and vice versa. In category theory, it is called isomorphism between sides, means they are the same up to isomorphism.
+
+\section{Algebraic Data Types}
+Algebraic data types are types constructed by using sum, product, and exponential, just like polynomial can be made by using plus, times, and exponential. For example, given type Int, we can get a new type by using sum, product and exponent on type Int, like $Int \times Int$, $Int + Int$, $Int \rightarrow Int$ and/or $Int \times Int + Int \rightarrow Int + Int \times Int$. That means you can see $Int$ or other type as numbers as well as sum, product and exponential as operators in polynomial to create a new type by arbitrarily combining numbers with operators. 
+
+Therefore in Swift, we can implement sum, product, and exponential by using enumeration, tuple, struct, function. Then we can create algebraic data types as we want.
+
+Interesting, right? In category theory, if a category has product and exponential, that category is Cartesian Closed Category (CCC). And you can see by regarding type as object and function between types as morphism, our type system can form a category Type. Moreover it is a Cartesian closed category.
+
+
+%\section{Dispath Matrix}
+%Let us to exam an algebraic equation, $(A + B) \rightarrow (C \times D)$, where A, B, C, D are types. By using the equations in Section Type Algebras, we know that:
+%\begin{align}
+%(A + B) \rightarrow (C \times D)
+%&\cong (A \rightarrow ( C \times D )) \nonumber\\
+%&\times( B \rightarrow ( C \times D ))\\
+%&\cong (A \rightarrow  C) \nonumber\\
+%&\times  (A \rightarrow  D)  \nonumber\\
+%&\times (B \rightarrow  C) \nonumber\\
+%&\times  (B \rightarrow  D)
+%\end{align}
+%From equation two, we can get an interesting observation as following matrix:
+%\begin{diagram}
+%   & C                      &  & D                       &\\
+%A & A \rightarrow C &  & A\rightarrow D    &\\
+%B & B  \rightarrow C &  & B\rightarrow D    & \\
+%\end{diagram}
+%The foregoing matrix is called dispatch matrix, we can think of A and B as classes as well as C and D as methods, then we can dispatch a method on an instance of class according to dispatch matrix. The reason why regard A and B as classes is because A and B are connected by sum operator, that means A and B are cases of type $A+B$, moreover, given a case of $A+B$, we can an instance type of that case. For example of Optional Type, there are two cases in Optional Type named Nil and Just, Nil has no value thus the instance type of Nil is unit, whereas Just has value for any type $\tau$ thus its instance type is $\tau$.
+%
+%
+%For convenience, we give following notation for this idea:
+%
+%Dispatch Matrix expression and its type:
+%\begin{equation*}
+%m\,:\,\prod_{c\in C}\prod_{d\in D}\,(\tau^{c}\rightarrow\rho_{d})
+%\end{equation*}
+%where represent each entry $m_{d}^{c}$ in a dispatch matrix, $\tau^{c}$ is the instance type associated with class $c$ and $\rho_{d}$ is the result type of method $d$, such that, for each class $c$ and method $d$,
+%\begin{equation*}
+%m \cdot c \cdot d \mapsto^{*} e_{d}^{c}.
+%\end{equation*}
+%
+%Now we can define an operation to create an object of the class c with instance data given by the expression e of type $\tau^{c}$ and method invocation operation.
+%\begin{equation*}
+%new [c] (e) \, : \, obj
+%\end{equation*}
+%\begin{equation*}
+%\Leftarrow\,d\,:\,obj\rightarrow\rho_{d}
+%\end{equation*}
+%
+%Therefore, the following condition should be hold by these two operations:
+%\begin{equation*}
+%(new [c] (e)) \Leftarrow\,d\ \mapsto^{*}\ m_{d}^{c}(e)
+%\end{equation*}
+%
+%That means given an expression e of instance type $\tau^{c}$, we can construct corresponding object for it which has a tuple of method d in D. Then we can invoke a method d on that object by using operation $\Leftarrow\,d$. Equivalently means to apply the picking method d for a class c on dispatch matrix m to expression e of instance type $\tau^{c}$.
+%
+%
+%The fundamental idea is that classify objects into classes and dispatch methods on the class of an object.
+%
+%
+%After we rearrange the equation, we can get two equivalent way to organize the way a method is dispatched.
+%
+%\subsubsection*{Class-Based Organization}
+%From the following equation,
+%\begin{align*}
+%(A + B) \rightarrow (C \times D)
+%&\cong (A \rightarrow ( C \times D )) \\
+%&\times( B \rightarrow ( C \times D ))
+%\end{align*}
+%we know we can construct object for corresponding class A or B with given expression e of type $\tau^{A}$ or $\tau^{B}$, then each object contains a tuple of methods $\rho_{C}$ and $\rho_{D}$ of its class. Therefore we can invoke method $\rho_{C}$ and $\rho_{D}$ on that object.
+%
+%\subsubsection*{Method-Based Organization}
+%From the following equation,
+%\begin{align*}
+%(A + B) \rightarrow (C \times D)
+%&\cong ((A + B) \rightarrow C ))\\
+%&\times( (A + B) \rightarrow D ))
+%\end{align*}
+%we know we have a tuple of methods C and D which take an argument of type $A+B$, when we have an expression e of instance type $\tau^{A}$ or $\tau^{B}$, the method C or D acting on expression e will do the case analysis to see if expression e is of  $\tau^{A}$ or  $\tau^{B}$, then execute the method $\rho_{C}$ or $\rho_{D}$ on expression e accordingly. 
+
+
+\section{Recursive Types}
+\subsection*{General Recursion}
+The key of general recursion is to identify the recursive call in a set of recursion equations.
+\begin{equation*}
+(\ fix\  f:\tau\ is\ F(f):\tau\ ):\tau
+\end{equation*}
+where $f$ is recursive call of type $\tau$, $F(f)$ is an expression of type $\tau$ which will occasionally use $f$ with some arguments, and the whole $fix$ expression is of type $\tau$
+\begin{equation*}
+\frac{\Gamma,\, f:\tau\,\vdash\,F:\tau}{\Gamma\,\vdash\,fix\ f\ is\ F(f)\,:\,\tau}
+\end{equation*}
+Moreover, we can see that
+\begin{equation*}
+F(f)\,=\,f\,=\,fix(F)\qquad and \qquad fix(F) = F(fix(F))
+\end{equation*}
+\begin{equation*}
+f=\,(fix\  f\ is\ F(f))
+\end{equation*}
+where $f$ is the recursive call in general recursion which refers to general recursion itself and $F(f)$ is the body of general recursion which will occasionally call $f$. Then we get the step evaluation for general recursion called unwinding the recursion.
+\begin{equation*}
+\frac{}
+{fix\ f\ is\ F(f)\,\mapsto\,F[fix\ f\ is\ F(f)\ /f]}
+\end{equation*}
+
+\subsection*{Primitive Recursion}
+Before we move on to recursive type which apply general recursion on type level instead of on expression level as above, we have close look at primitive recursion (structural recursion) and its concise version, iteration.
+
+
+Informally, the reason why primitive recursion is also called structural recursion is because the recursion is act on the structure of a given type and to make that structure smaller and smaller. For example of natural number, we know the structure of natural number is either zero or successor of natural number.
+\begin{equation*}
+N = Zero + Successor(N)
+\end{equation*}
+Then primitive recursion on a natural number would recursively call a function which acts on its predecessor and its resulted of predecessor, when that natural number is eventually reduced to zero, it will call another function which acts on zero. The notation looks like as following:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e:N\qquad \Gamma\,\vdash\,e_{0}:\tau\qquad\Gamma, x:N, y:\tau\,\vdash\,e_{1}:\tau}
+{\Gamma\,\vdash\,rec(e,\ e_{0},\ x.y.e_{1})}
+\end{equation*}
+The semantics of this notation is given by following evaluation rules:
+\begin{equation*}
+\frac{}
+{rec(Zero,\ e_{0},\ x.y.e_{1}) \mapsto e_{0}}
+\end{equation*}
+\begin{equation*}
+\frac{}
+{rec(Successor(n),\ e_{0},\ x.y.e_{1}) \mapsto [(n, rec(n,\ e_{0},\ x.y.e_{1}))/(x,y)]e_{1}}
+\end{equation*}
+Now we know how recursion expression runs on the structure of natural number, by each recursive call, the structure of given argument of natural number becomes smaller, and the recursion stops at $Zero$.
+
+
+Iteration, the concise version of primitive recursion, is similar but do not need the argument of predecessor, therefore the introduction and evaluation rules would look like as following:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e:N\qquad \Gamma\,\vdash\,e_{0}:\tau\qquad\Gamma, y:\tau\,\vdash\,e_{1}:\tau}
+{\Gamma\,\vdash\,rec(e,\ e_{0},\ y.e_{1})}
+\end{equation*}
+\begin{equation*}
+\frac{}
+{rec(Zero,\ e_{0},\ y.e_{1}) \mapsto e_{0}}
+\end{equation*}
+\begin{equation*}
+\frac{}
+{rec(Successor(n),\ e_{0},\ y.e_{1}) \mapsto [rec(n,\ e_{0},\ y.e_{1})/y]e_{1}}
+\end{equation*}
+
+
+Moreover, by given zero-test expression
+\begin{equation*}
+ifz(e,e_{0},x.e_{1})
+\end{equation*}
+we can construct primitive recursion and iteration by using general recursion.
+\begin{align*}
+fix \ f&: nat \rightarrow \tau \rightarrow \tau\ is \\
+\lambda n&:nat.\,\lambda t:\tau.\\
+&ifz(n, e_{0}, x.F(f)(t))
+\end{align*}
+
+
+Notice that, with general recursion, our expression is not guaranteed to terminate. Because we can use general recursion to create infinite loop. The reason is general recursion stops at the condition specified inside the body $F(f)$ of general recursion, whereas primitive recursion stops at the smallest structure of the type of given argument. Therefore the proof of termination of a program is ensured by programmer, not the language.
+
+\subsection*{Recursive type}
+In the previous section, we have seen how recursion is used in expression level to be a solution for expression equation. An example of that is how to define a function to calculation the GCD (Greatest common dividend) of two natural number. We may express that function as following$^{[2]}$:
+\begin{align*}
+gcd\,m\,n =\ & case\ compare(m,n)\ of \\
+				& EQAUL \Rightarrow m \\
+				& LESS  \Rightarrow gcd\ m\ (n-m)  \\
+				& GREATER \Rightarrow  gcd\ (m-n)\ n
+\end{align*}
+Then we can abstract the right hand side of the above equation as $F(gcd)$, and we get $gcd = F(gcd)$. Therefore the solution for this equation $gcd = F(gcd)$ is the fixed point of $F$.
+
+
+Applying the same idea to type isomorphism equation, we get recursive type, the fixed point of type operators, as solution for type isomorphism equation. The followings are some examples of type isomorphism equation.
+\begin{equation*}
+Nat \cong 1+Nat
+\end{equation*}
+\begin{equation*}
+List \cong 1+ (Nat \times List)
+\end{equation*}
+\begin{equation*}
+Stream \cong Nat \times Stream
+\end{equation*}
+Now we can see the pattern of those equation would be $ t \cong \tau(t)$, where $t$ is self referential type and $\tau$ is type expression depending on $t$. Therefore, generally we can define notation for recursive type as:
+\begin{equation*}
+\mu\,t.\tau
+\end{equation*}
+where $t$ is type variable, $\tau$ is an type expression which depends on type $t$ and $\mu$ means the whole thing is recursive type.
+
+
+The isomorphism in type isomorphism equation means there are two mutually inverted function, named $fold$ and $unfold$, transferring between two types on each side. $unfold$ maps the left hand side t right hand side, whereas $fold$ maps the right hand side to the left hand side. Moreover, given
+\begin{equation*}
+A \cong B
+\end{equation*}
+and element $a \in A$, we get
+\begin{equation*}
+fold(\,unfold(\,a\,)\,) = a
+\end{equation*}
+and vice versa for elements in $B$. Generally, we get
+\begin{equation*}
+fold \circ unfold = 1_{A} \qquad unfold \circ fold = 1_{B}
+\end{equation*}
+
+
+Bearing this idea in mind, let us exam an example of inductive type, \\ $Natural Number$ and another example of coinductive type, $Stream$, in terms of Swift. The inductive type and coinductive type are two important forms of recursive type which are solution for type isomorphism equation of different forms.
+
+\subsection*{Natural Number in Swift}
+By the equation of natural number isomorphism, $Nat \cong 1+Nat$, we can know the definition of $Nat$ as following:
+\begin{equation*}
+Nat = \mu(\alpha.1+\alpha)
+\end{equation*}
+Then we get by substitute the definition of $Nat$
+\begin{equation*}
+\mu(\alpha.1+\alpha) = 1 + \mu(\alpha.1+\alpha)
+\end{equation*}
+where $\alpha$ is the self referential type and $1+\alpha$ is the body of recursive type which is a type operator or type abstraction taking $\alpha$ as type argument.
+Now, when we unfold an expression $e$ of type $\mu(\alpha.1+\alpha)$, we will get as following:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,\mu(\alpha.1+\alpha)}{\Gamma\,\vdash\,unfold(e)\,:\,[\mu(\alpha.1+\alpha)/\alpha](1+\alpha)}
+\end{equation*}
+which is:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,\mu(\alpha.1+\alpha)}{\Gamma\,\vdash\,unfold(e)\,:\,1 + \mu(\alpha.1+\alpha)}
+\end{equation*}
+
+
+In another way around, when we fold an expression $e$ of type $[\mu(\alpha.1+\alpha)/\alpha](1+\alpha)$, we will get as following:
+\begin{equation*}
+\frac{\Gamma\,\vdash\,e\,:\,[\mu(\alpha.1+\alpha)/\alpha](1+\alpha)}{\Gamma\,\vdash\,fold(e)\,:\,\mu(\alpha.1+\alpha)}
+\end{equation*}
+It shows the isomorphism between types $\mu(\alpha.1+\alpha)$ and $1+\mu(\alpha.1+\alpha)$ by $fold$ and $unfold$ functions.
+
+\begin{lstlisting}[language=Swift]
+/**
+ Using indirect enumeration to implement church coding of natural number
+ */
+
+enum NaturalNumber {
+  case zero
+  indirect case successor(NaturalNumber)
+}
+extension NaturalNumber {
+  var next: NaturalNumber { return .successor(self) }
+  var previous: NaturalNumber {
+    if case let NaturalNumber.successor(n) = self {
+      return n
+    } else { return self }
+  }
+
+  static func + (lhs: NaturalNumber, rhs: NaturalNumber) -> NaturalNumber {
+    switch (lhs, rhs) {
+    case (.zero, let r): return r
+    case (let l, .zero): return l
+    case (let .successor(l), let .successor(r)):
+      return .successor(.successor(l + r))
+    }
+  }
+
+  static func * (lhs: NaturalNumber, rhs: NaturalNumber) -> NaturalNumber {
+    switch (lhs, rhs) {
+    case (.zero, _): return .zero
+    case (_, .zero): return .zero
+    case (let .successor(l), let r): return r + l * r
+    }
+  }
+}
+
+/// decimal to Church Coding Natural number and vice versa.
+extension NaturalNumber: ExpressibleByIntegerLiteral{
+  init(integerLiteral decimal: UInt) {
+    var naturalNumber = NaturalNumber.zero
+    for _ in 0..<decimal { naturalNumber = naturalNumber.next }
+    self = naturalNumber
+  }
+
+  var decimal: UInt {
+    var decimalNumber: UInt = 0
+    var current: NaturalNumber = self
+    while case NaturalNumber.successor(let n) = current {
+      decimalNumber += 1; current = n
+    }
+    return decimalNumber
+  }
+}
+
+let ten: NaturalNumber = 10
+let decimalTen: UInt = ten.decimal
+let oneHundred: NaturalNumber = ten * ten
+let decimalOneHundred: UInt = oneHundred.decimal
+\end{lstlisting}
+
+\subsection*{Call by Value, Eager VS. Call by Name, Lazy}
+Before we go for the coinductive type $Stream$ in Swift, let us see something about eager evaluation and lazy evaluation for programming language.
+
+
+Swift is a call by value programming language which means when doing function evaluation in Swift, before invoke function, the arguments of that function would be evaluation to some values, then call that function with those values. Moreover there is a feature called $autoclosure$ that can make argument evaluation later inside the function until that argument is actually used, in other words, delay evaluation until actually use. That change how to reason about a program which will be eager evaluation or lazy evaluation.
+
+
+For example, the lazy form of a coinductive type, $Stream$, would look like this:
+\begin{equation*}
+Stream \cong \tau \times Stream
+\end{equation*}
+where $\tau$ is a type variable ranging over all type in Type System.
+
+
+Because if that type isomorphism equation of $Stream$ is implemented in eager programming language, that would become an infinite data structure which is impossible to exist in eager programming language. Therefore we see it in lazy form, and it would look like this:
+\begin{equation*}
+Stream \cong \tau \times ( 1 \rightarrow Stream )
+\end{equation*}
+where embedding $Stream$ into a function type that delay evaluation in eager programming language. That is actually how $autoclosure$ works in Swift.
+
+
+Remind you that inductive type is naturally show in eager form, that means it is naturally implemented in eager programming language like swift.
+
+
+\subsection*{Stream in Swift}
+\begin{lstlisting}[language=Swift]
+// 0, 1, 2, 3...
+enum Stream {
+  indirect case cons(Int, () -> Stream)
+}
+
+extension Stream {
+  static func create(with state: Int) -> Stream {
+    func f () -> Stream {
+      return Stream.cons(state + 1, f)
+    }
+
+    return Stream.cons(state, f)
+  }
+}
+
+extension Stream {
+  func head() -> Int {
+    switch self {
+    case .cons(let x, _):
+      return x
+    }
+  }
+  func tail() -> Stream {
+    switch self {
+    case .cons(_, let s):
+      return s()
+    }
+  }
+}
+
+let s = Stream.create(with: 3)
+let h = s.head()
+let t = s.tail()
+let ht = t.head()
+\end{lstlisting}
+\section{Universal}
+Why do we use programming language to make program which would be executed on a computer? Why not just operate CPU instructions and data bytes? Because it is way too cumbersome for our human brain to make things work in that level, particular for larger scale program. Therefore we invented some high level programming language to express our reasoning with algorithm then compile them into machine code. In high level programming language, abstraction and composition are the key for our program, because they ensure we can expression our thinking in concise and accurate way with scalability. Ideally, we want to express our ideas once and for all, moreover those ideas are consistent with each other. That is, we can think of our program as a composition of components, each component is one of our thinking, and the whole program is a well-organized composition of those components, thus we need not to make the same component twice, instead, what we want is to use it twice.
+
+
+As an example, we can see what is $function$. Without function, we should write a long piece of code for a purpose, and another piece of code for similar purpose with subtle difference. And function can help us abstract the common part of reasoning from those two purposes or more, then implements it once and reuses it as needed. Therefore, sometimes function is also called expression abstraction, or term abstraction.
+
+
+What if there are some cases that the behaviors of functions are the same except the types of arguments and/or return value. How can we write one piece of code to capture this kind of expression pattern. For example, I want a function called identity taking any value of any type then returning exactly what it took. If I supply a value of type $Int$, it would return that value of type $Int$. For another value of another type, it do the same thing. Therefore it is redundant to implement the same idea of different versions for different types.
+
+
+So the solution given by this section is called $universal\ type$ with \\
+a) $type\ variable$ paralleling to $parameter$ of function ,  \\
+b) $type\ abstraction$ paralleling to function as $expression\ abstraction$, and \\
+c) $type\ application$ paralleling to $function\ application$.\\
+Therefore, informally, $Universal\ type$ is the type of $type\ abstraction$
+Now let us see the type formation judgments and typing judgments for them.
+
+
+Type formation rule for $Universal\ type$
+\begin{equation*}
+\frac{\Delta , \alpha\ type \vdash \tau\ type}{\Delta \vdash \forall \alpha.\tau\ type}
+\end{equation*}
+
+Tying Judgments for $Universal\ type$
+\begin{equation*}
+\frac
+{\Delta , \alpha\ type \ \Gamma \vdash e : \tau}
+{\Delta\ \Gamma \vdash \ \Lambda t.e : \forall \alpha.\tau}
+\tag{Introductory}
+\end{equation*}
+\begin{equation*}
+\frac
+{\Delta\ \Gamma \vdash e:\forall \alpha.\tau\quad \Delta \vdash \sigma\ type}
+{\Delta\ \Gamma \vdash e[\sigma]:[\sigma/\alpha]\tau}
+\tag{Elimination}
+\end{equation*}
+And its value rules and evaluation rules are as following:
+\begin{equation*}
+\frac{}{\Lambda \alpha.e \ value}
+\end{equation*}
+\begin{equation*}
+\frac{\rho \ type}
+{\Lambda \alpha.e [\rho] \mapsto [\rho/\alpha]e}
+\end{equation*}
+\begin{equation*}
+\frac{e \mapsto e'}
+{\Lambda \alpha.e [\rho] \mapsto\Lambda \alpha.e' [\rho]}
+\end{equation*}
+
+Before we move on to exam universal type in Swift, let us see some related concepts, namely monomorphism and polymorphism. Monomorphism refers that an expression has unique type, no type variable inside it, whereas polymorphism refers that an expression has universal type which contains one or more type variables. When those type variable inside a universal type range over all types, we call that is parametric polymorphism, else those type variables range over a subset of types, we call that is intentional polymorphism, or ad-hoc polymorphism, that is some restrictions on type variables. Usually when we say polymorphism wihout further description, we mean it is parametric polymorphism where the type variables range over all types.
+
+\subsection*{Universal Type in Swift}
+\begin{lstlisting}[language=Swift]
+enum List<T> {
+  case empty
+  indirect case cons(T, List<T>)
+}
+
+extension List {
+  func fmap<U> ( f: (T) -> U ) -> List<U> {
+    switch self {
+    case .empty:
+      return .empty
+    case .cons(let head, let tail):
+      return .cons(f(head), tail.fmap(f: f))
+    }
+  }
+}
+
+let x = List<Int>.empty
+let xs = List<Int>.cons(10, x)
+let xxs = List<Int>.cons(100, xs)
+let str = xxs.fmap { $0.description }
+print(str)
+\end{lstlisting}
+\section{Existential}
+Existential type, also called abstract type, is indeed a form of polymorphism, which means we can encode existential type by universal type in a particular form. But before let us exam existential type alone.
+
+
+The notation for existential type is $\exists t.\tau$. And its type formation rule and typing rules are showed as following:
+\begin{equation*}
+\frac{\Delta, \alpha \  type \vdash \tau \ type}
+{\Delta \vdash \exists \alpha.\tau\ type}
+\end{equation*}
+\begin{equation*}
+\frac{\Delta \vdash \rho \ type \quad \Delta, \alpha \ type \vdash \tau \ type \quad \Delta\, \Gamma \vdash e : [\rho/\alpha]\tau}
+{\Delta\,\Gamma \vdash pack[\alpha.\tau][\rho](e):\exists \alpha.\tau}
+\end{equation*}
+\begin{equation*}
+\frac{\Delta\,\Gamma \vdash e_{1}:\exists \alpha.\tau_{1} \quad \Delta, \alpha \ type\ \Gamma, x:\tau_{1} \vdash e_{2}:\tau_{2} \quad \Delta \vdash \tau_{2}\ type}
+{\Delta\,\Gamma \vdash open[\alpha.\tau_{1}][\tau_{2}](e_{1};\alpha,x.e_{2}):\tau_{2}}
+\end{equation*}
+And its value rules and evaluation rules would look like as following:
+\begin{equation*}
+\frac{e\ value}{pack[\alpha.\tau][\rho](e)\ value}
+\end{equation*}
+\begin{equation*}
+\frac{e \mapsto e'}
+{pack[\alpha.\tau][\rho](e) \mapsto pack[\alpha.\tau][\rho](e')}
+\end{equation*}
+\begin{equation*}
+\frac{e \mapsto e'}
+{open[\alpha.\tau][\tau_{2}](e;\alpha,x.e_{2}) \mapsto open[\alpha.\tau][\tau_{2}](e';\alpha,x.e_{2})}
+\end{equation*}
+\begin{equation*}
+\frac{e \ value}
+{open[\alpha.\tau][\tau_{2}](pack[\alpha.\tau][\rho](e);\alpha,x.e_{2}) \mapsto [\rho,e/\alpha,x]e_{2}}
+\end{equation*}
+We can see the existential type as an interface of type $\tau$ given some type $\alpha$ in its implementation, the pack operation is the implementation process of that interface using a type $\rho$ in implementation expression $e$, and the open operation is the use of that interface in a client by opening the package $e_{1}$ for use within the client $e_{2}$ by binding its representation type to $\alpha$ and its implementation to $x$ for use within $e_{2}$
+
+
+For example of Counter, we define an interface of Counter with some operations on Counter, namely $zero: Counter$, $increment: Counter \rightarrow Counter$, $value: Nat$, therefore we get an existential type of form $\exists\alpha.\tau$
+\begin{align*}
+\exists Counter. \{&zero: Counter, \\
+&increment: Counter \rightarrow Counter, \\
+&value: Counter \rightarrow Nat\}
+\end{align*} 
+where $\alpha$ is $Counter$ as abstract type, and $\tau$ is the labeled record (tuple).
+
+
+When we pick one type to implement that interface, we use pack operation of form
+\begin{equation*}
+pack\, [\alpha.\tau][\rho](e)
+\end{equation*}
+ as following:
+\begin{align*}
+pack & \\
+&[Counter. \{zero: Counter, increment: Counter \rightarrow Counter, value: Nat \rightarrow Nat\}] \\
+&[Nat]\\
+&(\{
+zeor = Zero, increment\ n = successor(n), value\ n = n
+\})
+\end{align*}
+Now, we can see expression $e$ in pack operation is the implementation of existential type with type $\rho$. Moreover, we can pick another type for $\rho$ to have another implementation of type $\exists Counter.\{...\}$
+
+
+Next, we see how to use that existential type as following of form:
+\begin{equation*}
+open[\alpha.\tau_{1}][\tau_{2}](e_{1};\alpha,x.e_{2}):\tau_{2}
+\end{equation*}
+\begin{align*}
+open & \\
+&[Counter. \{zero: Counter, increment: Counter \rightarrow Counter, value: Nat \rightarrow Nat\}] \\
+&[Nat]\\
+&(aCounter; \\
+& let\ inc = Counter.increment(\,aCounter\,)\ in\ Counter.value(\,inc\,)\\
+&)
+\end{align*}
+When we use a counter, we do not know and need not know what is the implementation type inside. Thus it is quite straightforward to implement existential type in Swift with $protocol$. See the following section.
+
+
+Before the end of this section, let us turn back the question of how to show existential in universal.
+\begin{equation*}
+\exists\alpha.\tau = \forall \sigma. (\forall \alpha.\tau \rightarrow \sigma) \rightarrow \sigma
+\end{equation*}
+\begin{align*}
+pack\, [\alpha.\tau][\rho](e) = &\Lambda\,\sigma.\\
+&\lambda\,F:\forall\alpha.\tau\rightarrow\sigma.\\
+&F[\rho](e)
+\end{align*}
+\begin{align*}
+open[\alpha.\tau_{1}][\tau_{2}](e_{1};\alpha,x.e_{2}) = 
+e_{1}[\tau_{2}](&\Lambda\alpha.\\
+&\lambda\,x:\tau_{1}.\\
+&e_{2})
+\end{align*}
+Therefore, we can say an existential type as a parametric polymorphic function type that, for all result type $\sigma$, will return a value of $\sigma$ by given a parametric polymorphic function of type $\forall \alpha.\tau \rightarrow \sigma$. 
+
+
+By the way, we also can rewrite product and sum in terms of universal type:
+\begin{equation*}
+\tau_{1}\times \tau_{2} = \forall\sigma. (\tau_{1}\rightarrow\tau_{2}\rightarrow\sigma)\rightarrow \sigma
+\end{equation*}
+It means product type can be see as a parametric polymorphic function which for all type $\sigma$, returns a value of $\sigma$ by given a function for $\tau_{1}\times\tau_{2}$ as argument and $\sigma$ as result type.
+\begin{equation*}
+\tau_{1}+ \tau_{2} = \forall\sigma. (\tau_{1}\rightarrow\sigma)\rightarrow(\tau_{2}\rightarrow\sigma)\rightarrow \sigma
+\end{equation*}
+It means sum type can be see as a parametric polymorphic function which for all type $\sigma$, returns a value of $\sigma$ by given one function for each type case.
+
+
+Then the related project and injection functions can be defined easily.
+
+
+\subsection*{Existential Type in Swift}
+\begin{lstlisting}[language=Swift]
+protocol Counter {
+  func zeroC() -> Self
+  func increment() -> Self
+  func value() -> NaturalNumber
+}
+
+extension NaturalNumber: Counter {
+  func zeroC() -> NaturalNumber {
+    return NaturalNumber.zero
+  }
+  func increment() -> NaturalNumber {
+    return self.next
+  }
+  func value() -> NaturalNumber {
+    return self
+  }
+}
+
+let n: NaturalNumber = 10
+func counterUse<T:Counter>(_ c: T) {
+  let s = c.increment()
+  let value = s.value()
+  print(value)
+}
+\end{lstlisting}
+
+\section{Summary}
+After we have a close on those 6 type forms and their related notions, we may feel how beautiful those forms fit together and interact with each other to form features of a programming language. Moreover, we would see those forms ubiquitously occurs in different programming language. Before we close this article, let us exam three related notions, namely constant, variable, and assignable$^{[1][2]}$. Constant means its value is fixed, never change, like $\pi$ in mathematics, variables like placeholders in expression, after being initialized with value by substitution, never change later on, whereas assignable means after assigning a value to it, you can change it to another value. In swift, constant refers to something literals, and variable refers to constant of Swift declared by let, and assignable refers to normal variable of Swift declared by var. Mostly, in functional programming, we seldom use assignable, instead we focus on using variable, to make reasoning more straightforward. Because when use assignable, for $var\ x = 1$, $x + x$ is not guaranteed to be $2$ in concurrence situation, whereas when x is variable as $let\ x = 1$, then $x + x$ is always $2$ $^{[2]}$. Therefore when we do functional programming, we should notice which one to use, constant, variable or assignable. As rules of thumb, I recommend to try our best to use let in Swift to avoid mutations, particular in parallelism.
+
+\section{References}
+[1] Practical Foundations for Programming Languages - Robert Harper
+
+[2] Programming Languages Background - Robert Harper and Dan Licata - OPLSS 2017
+
+[3] The Swift Programming Language - Language Reference
+
+[4] https://existentialtype.wordpress.com/2011/03/27/the-holy-trinity/
+
+[5] https://ncatlab.org/nlab/show/computational+trinitarianism
+
+[6]https://ncatlab.org/nlab/show/\\ relation+between+type+theory+and+category+theory
+
+[7] Category Theory -- Steve Awodey
+
+[8] Proof Theory Foundations - Frank Pfenning - OPLSS 2012
+
+\section{Terms and Conventions}
+In this section we will list the terms and conventions used through this article.
+
+\begin{table}[htp]
+\begin{tabularx}
+{\linewidth}
+{|>{\RaggedRight}p{2.5cm}|x|x|}\hline
+Name & Notation & Description\\ \hline
+Sorts & $type, expression$ & Sorts of syntax in a language which else includes $declaration, attribute$ etc. \\ \hline
+Expression      & $e$ & little English letter \\ \hline
+Type	   & $\tau,\rho,\sigma$ & little Greek letter  \\ \hline
+Expression of Type & $e:\tau$ & \\ \hline
+Expression Variable & $x, y, z, w, v, u$ & little English letter started from $x$ forward or backward (if more than 3) \\ \hline
+Type Variable &  $\alpha, \beta, \gamma$ & little Greek letter started from $\alpha$ \\ \hline 
+Function &  $f, g, h$ & little English letter started from $f$ \\ \hline 
+Type Forms & $\times, +, \rightarrow, \mu, \forall, \exists$ & also called compound type, or type structure, which create new types from old types \\ \hline
+Product Type Form & $\tau_{1}\times\tau_{2}$ & A product type created by pairing two types \\ \hline
+Expression of Product Type & $<e_{1}, e_{2}> : \tau_{1}\times\tau_{2}$ & \\ \hline
+Sum Type Form & $\tau_{1}+\tau_{2}$ & A sum type created by tagged two types \\ \hline
+Expression of Sum Type & $in_{i}(e) : \tau_{1}+\tau_{2}$ & $i$ ranges over $1,2$ in this case \\ \hline
+Exponential Type Form & $\tau_{1}\rightarrow\tau_{2}$ & A exponential type created by arrow two types \\ \hline
+Expression of Exponential Type & $\lambda\,x.e : \tau_{1}\rightarrow\tau_{2}$ & \\ \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[htp]
+\begin{tabularx}
+{\linewidth}
+{|>{\RaggedRight}p{2.5cm}|x|x|}\hline
+Name & Notation & Description\\ \hline
+Recursive & $\mu(\alpha.\tau) $ &  \\
+Type Form & $[\mu(\alpha.\tau)/\alpha]\tau$ & \\ \hline
+Expression & $fold(e):\mu(\alpha.\tau)$ & \\ 
+ of Recursive Type & $unfold(e):[\mu(\alpha.\tau)/\alpha]\tau$  & \\ \hline
+Universal Type Form & $\forall\alpha.\tau$ &  \\ \hline
+Expression of Universal Type & $\Lambda \alpha.\tau : \forall\alpha.\tau$ & \\ \hline
+Existential Type Form & $\exists\alpha.\tau$ &  \\ \hline
+Expression of Existential Type & $pack[\alpha.\tau][\rho](e):\exists\alpha.\tau$ & \\ \hline
+Expression Variable Context & $\Gamma$ & $\Gamma = \{a_{1}:\tau_{1}, a_{2}:\tau_{2}...\}$ \\ \hline
+Type Variable Context & $\Delta$ & $\Delta = \{\alpha_{1}\ type, \alpha_{2}\ type...\}$ \\ \hline
+\end{tabularx}
+\end{table}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

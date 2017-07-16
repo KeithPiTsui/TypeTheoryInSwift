@@ -1,0 +1,1648 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=latex 2017.7.7)  16 JUL 2017 16:25
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\makeatletter\def\HCode{\futurelet\HCode\HChar}\def\HChar{\ifx"\HCode\def\HCo
+de"##1"{\Link##1}\expandafter\HCode\else\expandafter\Link\fi}\def\Link#1.a.b.c.
+{\g@addto@macro\@documentclasshook{\RequirePackage[#1,html]{tex4ht}}\let\HCode\
+documentstyle\def\documentstyle{\let\documentstyle\HCode\expandafter\def\csname
+ tex4ht\endcsname{#1,html}\def\HCode####1{\documentstyle[tex4ht,}\@ifnextchar[{
+\HCode}{\documentstyle[tex4ht]}}}\makeatother\HCode .a.b.c.\input  TypeTheoryIn
+Swift.tex
+(./TypeTheoryInSwift.tex
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2016-07-18-16:08
+Package: tex4ht 
+--------------------------------------
+--- Note --- for _ at preamble, use the command line option `early_'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ at preamble, use the command line option `early^'
+--------------------------------------
+\tmp:toks=\toks14
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/usepackage.4ht)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen103
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks16
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks20
+\extratabsurround=\skip46
+\backup@length=\skip47
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/bussproofs/bussproofs.sty
+Proof Tree (bussproofs) style macros. Version 1.1.
+\theLevel=\count99
+\myMaxLevel=\count100
+\myBoxA=\box28
+\myBoxB=\box29
+\myBoxC=\box30
+\myBoxD=\box31
+\myBoxLL=\box32
+\myBoxRL=\box33
+\thisAboveSkip=\dimen114
+\thisBelowSkip=\dimen115
+\newScoreStart=\dimen116
+\newScoreEnd=\dimen117
+\newCenter=\dimen118
+\displace=\dimen119
+\leftLowerAmt=\dimen120
+\rightLowerAmt=\dimen121
+\scoreHeight=\dimen122
+\scoreDepth=\dimen123
+\htLbox=\dimen124
+\htRbox=\dimen125
+\htRRbox=\dimen126
+\htRRRbox=\dimen127
+\htAbox=\dimen128
+\htCbox=\dimen129
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks21
+\pgfutil@tempdima=\dimen130
+\pgfutil@tempdimb=\dimen131
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box34
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvips.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2016/07/10 v3.1a Driver-dependent file (DPC,SPQR)
+))
+\Gin@req@height=\dimen132
+\Gin@req@width=\dimen133
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks23
+\pgfkeys@temptoks=\toks24
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks25
+))
+\pgf@x=\dimen134
+\pgf@y=\dimen135
+\pgf@xa=\dimen136
+\pgf@ya=\dimen137
+\pgf@xb=\dimen138
+\pgf@yb=\dimen139
+\pgf@xc=\dimen140
+\pgf@yc=\dimen141
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count101
+\c@pgf@countb=\count102
+\c@pgf@countc=\count103
+\c@pgf@countd=\count104
+\t@pgf@toka=\toks26
+\t@pgf@tokb=\toks27
+\t@pgf@tokc=\toks28
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-tex4ht.def
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-tex4ht.d
+ef
+File: pgfsys-tex4ht.def 2013/08/06  (rcs-revision 1.25)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-s
+vg.def
+File: pgfsys-common-svg.def 2013/08/28  (rcs-revision 1.24)
+\pgf@sys@svg@objectcount=\count105
+\pgf@sys@svg@scopecount=\count106
+)
+\pgf@sys@svg@picnum=\count107
+\pgf@sys@svg@nodenum=\count108
+\pgfsys@foreignobject@Box=\box35
+\pgf@s=\dimen142
+\pgf@t=\dimen143
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count109
+\pgfsyssoftpath@bigbuffer@items=\count110
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen144
+\pgfmath@count=\count111
+\pgfmath@box=\box36
+\pgfmath@toks=\toks29
+\pgfmath@stack@operand=\toks30
+\pgfmath@stack@operation=\toks31
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count112
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen145
+\pgf@picmaxx=\dimen146
+\pgf@picminy=\dimen147
+\pgf@picmaxy=\dimen148
+\pgf@pathminx=\dimen149
+\pgf@pathmaxx=\dimen150
+\pgf@pathminy=\dimen151
+\pgf@pathmaxy=\dimen152
+\pgf@xx=\dimen153
+\pgf@xy=\dimen154
+\pgf@yx=\dimen155
+\pgf@yy=\dimen156
+\pgf@zx=\dimen157
+\pgf@zy=\dimen158
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen159
+\pgf@path@lasty=\dimen160
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen161
+\pgf@shorten@start@additional=\dimen162
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box37
+\pgf@hbox=\box38
+\pgf@layerbox@main=\box39
+\pgf@picture@serial@count=\count113
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen163
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen164
+\pgf@pt@y=\dimen165
+\pgf@pt@temp=\dimen166
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen167
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen168
+\pgf@sys@shading@range@num=\count114
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box40
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box41
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.190   \pgfusepathqfill}
+                         
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.190   \pgfusepathqfill}
+                         
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.190   \pgfusepathqfill}
+                         
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.190   \pgfusepathqfill}
+                         
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.190   \pgfusepathqfill}
+                         
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.209   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.214   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.221   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.226   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.232   \pgfusepathqstroke}
+                           
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.237   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+! Undefined control sequence.
+\pgfsys@svg@newline ->\Hnewline 
+                                
+l.245   \pgfusepathqfillstroke}
+                               
+? 
+\pgf@nodesepstart=\dimen169
+\pgf@nodesepend=\dimen170
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen171
+\pgffor@skip=\dimen172
+\pgffor@stack=\toks32
+\pgffor@toks=\toks33
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count115
+\pgfplotmarksize=\dimen173
+)
+\tikz@lastx=\dimen174
+\tikz@lasty=\dimen175
+\tikz@lastxsaved=\dimen176
+\tikz@lastysaved=\dimen177
+\tikzleveldistance=\dimen178
+\tikzsiblingdistance=\dimen179
+\tikz@figbox=\box42
+\tikz@figbox@bg=\box43
+\tikz@tempbox=\box44
+\tikz@tempbox@bg=\box45
+\tikztreelevel=\count116
+\tikznumberofchildren=\count117
+\tikznumberofcurrentchild=\count118
+\tikz@fig@count=\count119
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count120
+\pgfmatrixcurrentcolumn=\count121
+\pgf@matrix@numberofcolumns=\count122
+)
+\tikz@expandcount=\count123
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
+\pgfarrowinset=\dimen180
+\pgfarrowlength=\dimen181
+\pgfarrowwidth=\dimen182
+\pgfarrowlinewidth=\dimen183
+)))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/diagrams.sty
+==================================================================
+<Paul Taylor's commutative diagrams - version 3.95, December 2014>
+Package: diagrams 2014/12/31 v3.94 Paul Taylor's commutative diagrams
+\CD@uA=\count124
+\CD@vA=\count125
+\CD@wA=\count126
+\CD@xA=\count127
+\CD@OA=\dimen184
+\CD@PA=\dimen185
+\CD@RA=\dimen186
+\CD@SA=\dimen187
+\CD@yA=\count128
+\CD@zA=\count129
+\CD@QA=\dimen188
+\CD@DA=\box46
+\CD@LH=\count130
+\CD@TC=\count131
+\CD@XH=\dimen189
+\CD@zC=\dimen190
+\CD@@I=\dimen191
+\CD@LF=\dimen192
+\CD@oI=\dimen193
+\CD@DC=\dimen194
+\CD@eJ=\dimen195
+\PileSpacing=\dimen196
+\CD@nA=\dimen197
+\CD@YB=\dimen198
+\DiagramCellHeight=\dimen199
+\DiagramCellWidth=\dimen256
+\MapShortFall=\dimen257
+\CD@iA=\dimen258
+\rh+:>=\box47
+\rt+:<=\box48
+\dh+:>=\box49
+\dt+:<=\box50
+\rt+:>=\box51
+\rh+:<=\box52
+\dt+:>=\box53
+\dh+:<=\box54
+\CD@VE=\toks34
+\CD@SE=\toks35
+\CD@VA=\count132
+\CD@ME=\toks36
+\CD@XE=\toks37
+\CD@RE=\toks38
+\CD@TE=\toks39
+\CD@QE=\toks40
+\CD@WE=\toks41
+\CD@OE=\toks42
+\CD@PE=\toks43
+\CD@NE=\toks44
+\CD@UE=\toks45
+\CD@CA=\count133
+\CD@XB=\count134
+\CD@NB=\count135
+\CD@FA=\count136
+\CD@lA=\count137
+\CD@MB=\count138
+\CD@GB=\count139
+\CD@KG=\box55
+\CD@IG=\box56
+\DiagonalChoice=\count140
+\objectheight=\dimen259
+\objectwidth=\dimen260
+\CD@NA=\toks46
+\CD@xI=\toks47
+\CD@lH=\toks48
+\CD@hD=\toks49
+\CD@hH=\toks50
+
+| >>>>>>>> POSTSCRIPT MODE (DVIPS) IS NOW THE DEFAULT <<<<<<<<<<<<|
+|(DVI mode has not been supported since 1992 and produces inferior|
+|results which are completely unsuitable for publication. However,|
+|if you really still need it, you can still get it by loading the |
+|package using ``\usepackage[UglyObsolete]{diagrams}'' instead. ) |
+===================================================================)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count141
+\lst@gtempboxa=\box57
+\lst@token=\toks51
+\lst@length=\count142
+\lst@currlwidth=\dimen261
+\lst@column=\count143
+\lst@pos=\count144
+\lst@lostspace=\dimen262
+\lst@width=\dimen263
+\lst@newlines=\count145
+\lst@lineno=\count146
+\lst@maxwidth=\dimen264
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count147
+\lst@skipnumbers=\count148
+\lst@framebox=\box58
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
+\TX@col@width=\dimen265
+\TX@old@table=\dimen266
+\TX@old@col=\dimen267
+\TX@target=\dimen268
+\TX@delta=\dimen269
+\TX@cols=\count149
+\TX@ftn=\toks52
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip48
+\RaggedLeftLeftskip=\skip49
+\RaggedRightLeftskip=\skip50
+\CenteringRightskip=\skip51
+\RaggedLeftRightskip=\skip52
+\RaggedRightRightskip=\skip53
+\CenteringParfillskip=\skip54
+\RaggedLeftParfillskip=\skip55
+\RaggedRightParfillskip=\skip56
+\JustifyingParfillskip=\skip57
+\CenteringParindent=\skip58
+\RaggedLeftParindent=\skip59
+\RaggedRightParindent=\skip60
+\JustifyingParindent=\skip61
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/tex4ht.4ht
+version 2017-05-09-09:21
+--------------------------------------
+--- Note --- for additional information, use the command line option `info'
+--------------------------------------
+
+::::::::::::::::::::::::::::::::::::::::::
+ TeX4ht info is available in the log file 
+::::::::::::::::::::::::::::::::::::::::::
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/tex4ht.sty
+version 2016-07-18-16:08
+
+--- needs --- tex4ht TypeTheoryInSwift ---
+\tmp:cnt=\count150
+\openout15 = `TypeTheoryInSwift.tmp'.
+
+(./TypeTheoryInSwift.tmp)
+\tmp:dim=\skip62
+--------------------------------------
+--- Note --- for XML code, use the command line option `xml' or `xhtml'
+--------------------------------------
+ (./TypeTheoryInSwift.xref)
+\:refout=\write4
+\openout4 = `TypeTheoryInSwift.xref'.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- to remove the <?xml version=...?> processing instruction use the c
+ommand line option `no-VERSION'
+--------------------------------------
+--------------------------------------
+--- Note --- to remove the DOCTYPE declaration use the command line option `no-
+DOCTYPE'
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+)
+--------------------------------------
+--- Note --- for marking of the base font, use the command line option `fonts+'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for non active _, use the command line option `no_'
+--------------------------------------
+--------------------------------------
+--- Note --- for _ of catcode 13, use the command line option `_13'
+--------------------------------------
+--------------------------------------
+--- Note --- for non active ^, use the command line option `no^'
+--------------------------------------
+--------------------------------------
+--- Note --- for ^ of catcode 13, use the command line option `^13'
+--------------------------------------
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- for alternative charset, use the command line option `charset=...'
+
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS font decoration, use the `NoFonts' command line opti
+on
+--------------------------------------
+--------------------------------------
+--- Note --- for jpg bitmaps of pictures, use the `jpg' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for gif bitmaps of pictures, use the `gif' command line option. (C
+haracter bitmaps are controled only by `g' records of tex4ht.env and `-g' switc
+hes of tex4ht.c) 
+--------------------------------------
+--------------------------------------
+--- Note --- for content and toc in 2 frames, use the command line option `fram
+es'
+--------------------------------------
+--------------------------------------
+--- Note --- for content, toc, and footnotes in 3 frames, use the command line 
+option `frames-fn'
+--------------------------------------
+--------------------------------------
+--- Note --- for file extension name xht, use the command line option `xht'
+--------------------------------------
+TeX4ht package options: html
+--------------------------------------
+--- Note --- To print a timestamp, use the command line option timestamp
+--------------------------------------
+--------------------------------------
+--- Note --- to ignore CSS code, use the command line option `-css
+--------------------------------------
+--------------------------------------
+--- Note --- for inline CSS code, use the command line option `css-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for pop ups on mouse over, use the command line option `mouseover'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for addressing images in a subdirectory, use the command line opti
+on `imgdir:.../'
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+)
+\:tokwrite=\toks53
+\:tokpage=\toks54
+--------------------------------------
+--- Note --- for back links to toc, use the command line option `sections+'
+--------------------------------------
+--------------------------------------
+--- Note --- for linear crosslinks of pages, use the command line option `next'
+
+--------------------------------------
+\openout15 = `TypeTheoryInSwift.4ct'.
+
+\:tocout=\write5
+\openout5 = `TypeTheoryInSwift.4tc'.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/latex.4ht
+version 2017-01-24-15:21
+LaTeX Info: Redefining \_ on input line 168.
+--------------------------------------
+--- Note --- for links into captions, instead of float heads, use the command l
+ine option `refcaption'
+--------------------------------------
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- For mini tocs immediately aftter the header use the command line o
+ption `minitoc<'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements with valued data, use the command lin
+e option `enumerate+'
+--------------------------------------
+--------------------------------------
+--- Note --- for enumerated list elements li's with value attributes, use the c
+ommand line option `enumerate-'
+--------------------------------------
+--------------------------------------
+--- Note --- for CSS2 code, use the command line option `css2'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial tabular, use the command line option `pic-tabular'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap fbox'es, use the command line option `pic-fbox'
+--------------------------------------
+--------------------------------------
+--- Note --- for bitmap framebox'es, use the command line option `pic-framebox'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for inline footnotes use command line option `fn-in'
+--------------------------------------
+--------------------------------------
+--- Note --- for tracing of latex font commands, use the command line option `f
+onts'
+--------------------------------------
+--------------------------------------
+--- Note --- for width specifications of tabular p entries, use the `p-width' c
+ommand line option or a configuration similar to \Configure{HColWidth}{\HCode{ 
+style="width:\HColWidth"}}
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+--------------------------------------
+--- Note --- for pictorial eqnarray, use the command line option `pic-eqnarray'
+
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ environments, use the command line option `pic
+-m' (not recommended!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial $...$ and $$...$$ environments with latex alt, use t
+he command line option `pic-m+' (not safe!!)
+--------------------------------------
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/fontmath.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/article.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- for automatic sectioning pagination, use the command line option `
+1', `2', `3', '4', '5', '6', or '7'
+--------------------------------------
+--------------------------------------
+--- Note --- for files named derived from section titles, use the command line 
+option `sec-filename'
+--------------------------------------
+--------------------------------------
+--- Note --- for i-columns index, use the command line option `index=i' (e.g., 
+index=2)
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/amsmath.4ht
+version 2009-05-21-09:32
+\tmp:muskip=\muskip11
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/amstext.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/amsbsy.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/amsopn.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/array.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+--------------------------------------
+--- Note --- for pictorial array, use the command line option `pic-array'
+--------------------------------------
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/pgf.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/everyshi.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/graphicx.4ht
+version 2015-08-05-15:37
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/graphics.4ht
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- if included graphics are of degraded quality, try the command line
+ options `graphics-num' or `graphics-'. The `num' should provide the density of
+ pixels in the bitmaps (e.g., 110). 
+--------------------------------------
+--------------------------------------
+--- Note --- for key dimensions try the option `Gin-dim'; for key dimensions wh
+en bounding box is unavailable try `Gin-dim+'; neither is recommended
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/dvips.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/xcolor.4ht
+version 2017-04-28-08:47
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/color.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/color.4ht
+version 2009-05-21-09:32
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/diagrams.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/listings.4ht
+version 2017-04-22-16:03
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+--------------------------------------
+--- Note --- to ensure proper alignments use fixed size fonts (see listings.dtx
+)
+--------------------------------------
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/tabularx.4ht
+version 2009-05-21-09:32
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4.4ht
+version 2017-05-09-09:20
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/tex4ht/html4-math.4ht
+version 2017-03-30-16:04
+))
+(./TypeTheoryInSwift.aux)
+\openout1 = `TypeTheoryInSwift.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+\c@lstlisting=\count151
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 13.
+--- file TypeTheoryInSwift.css ---
+ [1
+
+] [2]
+(./TypeTheoryInSwift.4ct) [3] [4]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ [5]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+ [6] [7]
+l. 101 Writing TypeTheoryInSwift.idv[1] (TypeTheoryInSwift0x.png)
+l. 105 Writing TypeTheoryInSwift.idv[2] (TypeTheoryInSwift1x.png)
+ [8]
+l. 109 Writing TypeTheoryInSwift.idv[3] (TypeTheoryInSwift2x.png)
+l. 114 Writing TypeTheoryInSwift.idv[4] (TypeTheoryInSwift3x.png)
+l. 118 Writing TypeTheoryInSwift.idv[5] (TypeTheoryInSwift4x.png)
+ [9]
+l. 127 Writing TypeTheoryInSwift.idv[6] (TypeTheoryInSwift5x.png)
+l. 131 Writing TypeTheoryInSwift.idv[7] (TypeTheoryInSwift6x.png)
+l. 139 Writing TypeTheoryInSwift.idv[8] (TypeTheoryInSwift7x.png)
+ [10]
+l. 143 Writing TypeTheoryInSwift.idv[9] (TypeTheoryInSwift8x.png)
+l. 150 Writing TypeTheoryInSwift.idv[10] (TypeTheoryInSwift9x.png)
+l. 154 Writing TypeTheoryInSwift.idv[11] (TypeTheoryInSwift10x.png)
+ [11]
+l. 158 Writing TypeTheoryInSwift.idv[12] (TypeTheoryInSwift11x.png)
+l. 175 Writing TypeTheoryInSwift.idv[13] (TypeTheoryInSwift12x.png)
+\myBox1=\box59
+\myScoreStart1=\dimen270
+\myCenter1=\dimen271
+\myScoreEnd1=\dimen272
+\myBox2=\box60
+\myScoreStart2=\dimen273
+\myCenter2=\dimen274
+\myScoreEnd2=\dimen275
+ [12]
+l. 214 Writing TypeTheoryInSwift.idv[14] (TypeTheoryInSwift13x.png)
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 229.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 229.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 231.
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 289.
+
+Overfull \hbox (9565.09796pt too wide) in paragraph at lines 227--293
+[][][][][][][][][][][][]\OT1/cmr/m/n/10 x[][][][][][][][][][][][][][][][][][]x[
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]x[][][][][
+][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][]x[][][][][][]x[][
+][][][]x[][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][]
+[]x[][][][][][][][][][][][]x[][][][][][][][][][][][][][]x[][][][][][][][][][]x[
+][][][][][][][][][][][]x[][][][][][][][][][][][]x[][][][][][]x[][][][][]x[][][]
+[][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][][][][]x[][][
+][][][][][][][][][][][]x[][][][][][][][][][][][]x[][][][][][][][][][][][]x[][][
+][][][][][]x[][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][]
+[][][][][][][][]x[][][][][][][][][][][]x[][][][][][]x[][][][][][][][][][][][][]
+[][][][][][][][]x[][][][][][][][][][][]x[][][][][][]x[][][][][]x[][][][][][][][
+][][][][][][]x[][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][]
+[][][][][]x[][][][][][][][][][][][][][][][][][][][]x[][][][][][]x[][][][][][][]
+[][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][][]x[][][
+][][][]x[][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][]x[][][
+][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]x[][][][]
+[][][][][][][][][][][][]x[][][][][][][][][][][][][][]x[][][][][][]x[][][][][]x[
+][][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]x[]
+[][][][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]
+[][][][][][][][]x[][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][][][
+]x[][][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][]x[
+][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][]x[][][][][][][][][]
+[][][][][][]x[][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][][][][][
+]x[][][][][][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][]
+[][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][]x[][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][
+][][][][]x[][][][][][][][][][][][][][][] 
+ []
+
+l. 298 Writing TypeTheoryInSwift.idv[15] (TypeTheoryInSwift14x.png)
+[13]
+l. 302 Writing TypeTheoryInSwift.idv[16] (TypeTheoryInSwift15x.png)
+l. 306 Writing TypeTheoryInSwift.idv[17] (TypeTheoryInSwift16x.png)
+l. 311 Writing TypeTheoryInSwift.idv[18] (TypeTheoryInSwift17x.png)
+ [14]
+l. 318 Writing TypeTheoryInSwift.idv[19] (TypeTheoryInSwift18x.png)
+l. 326 Writing TypeTheoryInSwift.idv[20] (TypeTheoryInSwift19x.png)
+l. 334 Writing TypeTheoryInSwift.idv[21] (TypeTheoryInSwift20x.png)
+ [15]
+l. 338 Writing TypeTheoryInSwift.idv[22] (TypeTheoryInSwift21x.png)
+l. 342 Writing TypeTheoryInSwift.idv[23] (TypeTheoryInSwift22x.png)
+ [16]
+l. 349 Writing TypeTheoryInSwift.idv[24] (TypeTheoryInSwift23x.png)
+l. 353 Writing TypeTheoryInSwift.idv[25] (TypeTheoryInSwift24x.png)
+l. 360 Writing TypeTheoryInSwift.idv[26] (TypeTheoryInSwift25x.png)
+ [17]
+l. 367 Writing TypeTheoryInSwift.idv[27] (TypeTheoryInSwift26x.png)
+l. 406 Writing TypeTheoryInSwift.idv[28] (TypeTheoryInSwift27x.png)
+ [18]
+l. 463 Writing TypeTheoryInSwift.idv[29] (TypeTheoryInSwift28x.png)
+ [19] [20]
+l. 486 Writing TypeTheoryInSwift.idv[30] (TypeTheoryInSwift29x.png)
+l. 490 Writing TypeTheoryInSwift.idv[31] (TypeTheoryInSwift30x.png)
+ [21]
+l. 494 Writing TypeTheoryInSwift.idv[32] (TypeTheoryInSwift31x.png)
+l. 499 Writing TypeTheoryInSwift.idv[33] (TypeTheoryInSwift32x.png)
+l. 503 Writing TypeTheoryInSwift.idv[34] (TypeTheoryInSwift33x.png)
+ [22]
+l. 510 Writing TypeTheoryInSwift.idv[35] (TypeTheoryInSwift34x.png)
+l. 515 Writing TypeTheoryInSwift.idv[36] (TypeTheoryInSwift35x.png)
+l. 519 Writing TypeTheoryInSwift.idv[37] (TypeTheoryInSwift36x.png)
+ [23]
+l. 523 Writing TypeTheoryInSwift.idv[38] (TypeTheoryInSwift37x.png)
+l. 530 Writing TypeTheoryInSwift.idv[39] (TypeTheoryInSwift38x.png)
+l. 534 Writing TypeTheoryInSwift.idv[40] (TypeTheoryInSwift39x.png)
+ [24]
+l. 538 Writing TypeTheoryInSwift.idv[41] (TypeTheoryInSwift40x.png)
+l. 544 Writing TypeTheoryInSwift.idv[42] (TypeTheoryInSwift41x.png)
+ [25]
+l. 576 Writing TypeTheoryInSwift.idv[43] (TypeTheoryInSwift42x.png)
+ [26]
+l. 605 Writing TypeTheoryInSwift.idv[44] (TypeTheoryInSwift43x.png)
+l. 612 Writing TypeTheoryInSwift.idv[45] (TypeTheoryInSwift44x.png)
+l. 619 Writing TypeTheoryInSwift.idv[46] (TypeTheoryInSwift45x.png)
+l. 622 Writing TypeTheoryInSwift.idv[47] (TypeTheoryInSwift46x.png)
+ [27]
+l. 627 Writing TypeTheoryInSwift.idv[48] (TypeTheoryInSwift47x.png)
+l. 632 Writing TypeTheoryInSwift.idv[49] (TypeTheoryInSwift48x.png)
+
+[28]
+l. 719 Writing TypeTheoryInSwift.idv[50] (TypeTheoryInSwift49x.png)
+ [29]
+l. 723 Writing TypeTheoryInSwift.idv[51] (TypeTheoryInSwift50x.png)
+l. 727 Writing TypeTheoryInSwift.idv[52] (TypeTheoryInSwift51x.png)
+l. 730 Writing TypeTheoryInSwift.idv[53] (TypeTheoryInSwift52x.png)
+ [30]
+l. 734 Writing TypeTheoryInSwift.idv[54] (TypeTheoryInSwift53x.png)
+l. 744 Writing TypeTheoryInSwift.idv[55] (TypeTheoryInSwift54x.png)
+l. 748 Writing TypeTheoryInSwift.idv[56] (TypeTheoryInSwift55x.png)
+ [31]
+l. 753 Writing TypeTheoryInSwift.idv[57] (TypeTheoryInSwift56x.png)
+l. 757 Writing TypeTheoryInSwift.idv[58] (TypeTheoryInSwift57x.png)
+ [32]
+l. 765 Writing TypeTheoryInSwift.idv[59] (TypeTheoryInSwift58x.png)
+l. 769 Writing TypeTheoryInSwift.idv[60] (TypeTheoryInSwift59x.png)
+l. 773 Writing TypeTheoryInSwift.idv[61] (TypeTheoryInSwift60x.png)
+ [33]
+l. 780 Writing TypeTheoryInSwift.idv[62] (TypeTheoryInSwift61x.png)
+ [34]
+l. 805 Writing TypeTheoryInSwift.idv[63] (TypeTheoryInSwift62x.png)
+ [35]
+l. 808 Writing TypeTheoryInSwift.idv[64] (TypeTheoryInSwift63x.png)
+l. 811 Writing TypeTheoryInSwift.idv[65] (TypeTheoryInSwift64x.png)
+l. 814 Writing TypeTheoryInSwift.idv[66] (TypeTheoryInSwift65x.png)
+l. 815 Writing TypeTheoryInSwift.idv[67] (TypeTheoryInSwift66x.png)
+ [36]
+l. 822 Writing TypeTheoryInSwift.idv[68] (TypeTheoryInSwift67x.png)
+l. 826 Writing TypeTheoryInSwift.idv[69] (TypeTheoryInSwift68x.png)
+l. 830 Writing TypeTheoryInSwift.idv[70] (TypeTheoryInSwift69x.png)
+ [37]
+l. 838 Writing TypeTheoryInSwift.idv[71] (TypeTheoryInSwift70x.png)
+l. 839 Writing TypeTheoryInSwift.idv[72] (TypeTheoryInSwift71x.png)
+l. 843 Writing TypeTheoryInSwift.idv[73] (TypeTheoryInSwift72x.png)
+ [38]
+l. 848 Writing TypeTheoryInSwift.idv[74] (TypeTheoryInSwift73x.png)
+l. 852 Writing TypeTheoryInSwift.idv[75] (TypeTheoryInSwift74x.png)
+l. 858 Writing TypeTheoryInSwift.idv[76] (TypeTheoryInSwift75x.png)
+ [39]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 864.
+
+Overfull \hbox (8802.0874pt too wide) in paragraph at lines 863--920
+[][][][][][][][][]\OT1/cmr/m/n/10 x[][][][][][][][][][][][][][][][][][][][][][]
+[][][]x[][][][][][][]x[][][][][]x[][][][][][][][][][]x[][][][][][][][][]x[][][]
+[][][][][][][][][][][]x[][][][][][]x[][][][][][][][][][]x[][][][][][][][][][][]
+[][][][][][][][][][][][][]x[][][][][][][][][][][][][][]x[][][][][][][][][][][][
+][][][][][][][][][][][][]x[][][][][][][][][]x[][][][][][][][][][][][][][][][][]
+x[][][][][][][]x[][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][]x[][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][
+][]x[][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]
+[][][][][][][][]x[][][][][][][][][][][][][][][][][][][]x[][][][][][][]x[][][][]
+[][][]x[][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]x
+[][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][]x[][][][
+][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][]x[][][][][][][]x[][][][][][][]x[][][][][][]x[][][][][]x[][
+][][][][][][][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][]x[][]
+[][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][]x[][][][][][][][][
+][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][]x[][][][][][][]x[][][
+][][]x[][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]x[][][][][][
+][][][][][][][][][][]x[][][][][][][][][][][][][][][][][][][][][][][][]x[][][][]
+[][][][][][][][][][][][][]x[][][][][][][]x[][][][][][][][][]x[][][][][][][]x[][
+][][][][]x[][][][][]x[][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][
+][][][]x[][][][][][][][][][][][][][][][][][][]x[][][][][][][][][][][][][][][][]
+[] 
+ []
+
+l. 930 Writing TypeTheoryInSwift.idv[77] (TypeTheoryInSwift76x.png)
+l. 937 Writing TypeTheoryInSwift.idv[78] (TypeTheoryInSwift77x.png)
+[40] [41]
+l. 1002 Writing TypeTheoryInSwift.idv[79] (TypeTheoryInSwift78x.png)
+l. 1007 Writing TypeTheoryInSwift.idv[80] (TypeTheoryInSwift79x.png)
+ [42]
+l. 1013 Writing TypeTheoryInSwift.idv[81] (TypeTheoryInSwift80x.png)
+l. 1020 Writing TypeTheoryInSwift.idv[82] (TypeTheoryInSwift81x.png)
+l. 1023 Writing TypeTheoryInSwift.idv[83] (TypeTheoryInSwift82x.png)
+ [43]
+l. 1027 Writing TypeTheoryInSwift.idv[84] (TypeTheoryInSwift83x.png)
+ [44]
+l. 1063 Writing TypeTheoryInSwift.idv[85] (TypeTheoryInSwift84x.png)
+l. 1067 Writing TypeTheoryInSwift.idv[86] (TypeTheoryInSwift85x.png)
+l. 1071 Writing TypeTheoryInSwift.idv[87] (TypeTheoryInSwift86x.png)
+l. 1076 Writing TypeTheoryInSwift.idv[88] (TypeTheoryInSwift87x.png)
+ [45]
+l. 1079 Writing TypeTheoryInSwift.idv[89] (TypeTheoryInSwift88x.png)
+l. 1083 Writing TypeTheoryInSwift.idv[90] (TypeTheoryInSwift89x.png)
+l. 1087 Writing TypeTheoryInSwift.idv[91] (TypeTheoryInSwift90x.png)
+ [46] [47]
+l. 1104 Writing TypeTheoryInSwift.idv[92] (TypeTheoryInSwift91x.png)
+l. 1120 Writing TypeTheoryInSwift.idv[93] (TypeTheoryInSwift92x.png)
+ [48]
+l. 1135 Writing TypeTheoryInSwift.idv[94] (TypeTheoryInSwift93x.png)
+ [49] [50]
+l. 1153 Writing TypeTheoryInSwift.idv[95] (TypeTheoryInSwift94x.png)
+l. 1157 Writing TypeTheoryInSwift.idv[96] (TypeTheoryInSwift95x.png)
+ [51] [52] [53] [54
+
+]
+[55
+
+] [56
+
+] [57
+
+] [58
+
+]
+Commutative Diagram: try the PostScript option for better results
+[59
+
+] [60] (./TypeTheoryInSwift.aux) ) 
+Here is how much of TeX's memory you used:
+ 20224 strings out of 492996
+ 351072 string characters out of 6132731
+ 557597 words of memory out of 5000000
+ 23372 multiletter control sequences out of 15000+600000
+ 9838 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 69i,14n,87p,1908b,1304s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on TypeTheoryInSwift.dvi (60 pages, 263360 bytes).
